@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hoja de Vida | Jhonnier</title>
+    <meta name="description" content="Hoja de vida de Jhonnier - Analista de Innovación y Desarrollo" />
+
+    <style>
+        :root {
+            --bg: #0b1020;
+            --bg2: #0f1733;
+            --card: rgba(255, 255, 255, .06);
+            --card2: rgba(255, 255, 255, .08);
+            --txt: rgba(255, 255, 255, .92);
+            --muted: rgba(255, 255, 255, .70);
+            --line: rgba(255, 255, 255, .12);
+            --brand: #6ee7ff;
+            --brand2: #a78bfa;
+            --ok: #34d399;
+            --warn: #fbbf24;
+            --shadow: 0 14px 60px rgba(0, 0, 0, .35);
+            --radius: 18px;
+            --max: 1100px;
+        }
+
+        [data-theme="light"] {
+            --bg: #f7f7fb;
+            --bg2: #ffffff;
+            --card: rgba(10, 20, 40, .06);
+            --card2: rgba(10, 20, 40, .08);
+            --txt: rgba(10, 20, 40, .92);
+            --muted: rgba(10, 20, 40, .70);
+            --line: rgba(10, 20, 40, .14);
+            --shadow: 0 16px 55px rgba(15, 23, 42, .15);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue";
+            color: var(--txt);
+            background:
+                radial-gradient(1200px 900px at 15% 10%, rgba(110, 231, 255, .15), transparent 55%),
+                radial-gradient(900px 700px at 85% 20%, rgba(167, 139, 250, .14), transparent 55%),
+                radial-gradient(900px 700px at 50% 100%, rgba(52, 211, 153, .10), transparent 60%),
+                linear-gradient(160deg, var(--bg), var(--bg2));
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .container {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 28px 18px 80px;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(12px);
+            background: linear-gradient(180deg, rgba(0, 0, 0, .25), rgba(0, 0, 0, 0));
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        [data-theme="light"] .nav {
+            background: linear-gradient(180deg, rgba(255, 255, 255, .75), rgba(255, 255, 255, 0));
+            border-bottom: 1px solid rgba(15, 23, 42, .08);
+        }
+
+        .nav-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 750;
+            letter-spacing: .2px;
+        }
+
+        .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--brand), var(--brand2));
+            box-shadow: 0 0 0 6px rgba(110, 231, 255, .07);
+            animation: pulse 2.2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 6px rgba(110, 231, 255, .07)
+            }
+
+            50% {
+                transform: scale(1.15);
+                box-shadow: 0 0 0 12px rgba(167, 139, 250, .08)
+            }
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            border: 1px solid var(--line);
+            background: linear-gradient(180deg, var(--card2), var(--card));
+            color: var(--txt);
+            padding: 10px 12px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: transform .18s ease, background .18s ease, border-color .18s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+            user-select: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, .25)
+        }
+
+        [data-theme="light"] .btn:hover {
+            border-color: rgba(15, 23, 42, .22)
+        }
+
+        .btn:active {
+            transform: translateY(0px) scale(.99)
+        }
+
+        .btn-primary {
+            border: none;
+            background: linear-gradient(135deg, var(--brand), var(--brand2));
+            color: rgba(10, 20, 40, .96);
+            font-weight: 800;
+        }
+
+        .btn-primary:hover {
+            filter: saturate(1.1) contrast(1.05)
+        }
+
+        .icon {
+            width: 18px;
+            height: 18px;
+            display: inline-block
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .hero {
+            margin-top: 26px;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 18px;
+            align-items: stretch;
+        }
+
+        @media (max-width: 920px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            border: 1px solid var(--line);
+            background: linear-gradient(180deg, var(--card2), var(--card));
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-left {
+            padding: 26px
+        }
+
+        .kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .04);
+        }
+
+        .title {
+            margin: 14px 0 10px;
+            font-size: 44px;
+            line-height: 1.05;
+            letter-spacing: -0.8px;
+        }
+
+        @media (max-width: 420px) {
+            .title {
+                font-size: 38px
+            }
+        }
+
+        .subtitle {
+            margin: 0 0 18px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--muted);
+            max-width: 60ch;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .pill {
+            padding: 9px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .04);
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        /* Profile */
+        .hero-right {
+            padding: 18px
+        }
+
+        .profile {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 18px;
+        }
+
+        .profile-top {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .avatar {
+            width: 84px;
+            height: 84px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            object-fit: cover;
+            background: rgba(255, 255, 255, .05);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, .25);
+        }
+
+        .profile-name {
+            font-weight: 850;
+            font-size: 18px;
+            margin: 0
+        }
+
+        .profile-role {
+            margin: 4px 0 0;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .04);
+            transition: transform .18s ease, border-color .18s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, .22)
+        }
+
+        [data-theme="light"] .contact-item:hover {
+            border-color: rgba(15, 23, 42, .20)
+        }
+
+        .contact-left {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .contact-label {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .contact-value {
+            font-size: 14px;
+            font-weight: 700
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .04);
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        /* Sections */
+        .grid {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .section {
+            padding: 18px;
+        }
+
+        .h {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .h h2 {
+            margin: 0;
+            font-size: 16px;
+            letter-spacing: .2px;
+        }
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .item {
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .04);
+            border-radius: 14px;
+            padding: 12px;
+            transition: transform .18s ease, border-color .18s ease;
+        }
+
+        .item:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, .22)
+        }
+
+        [data-theme="light"] .item:hover {
+            border-color: rgba(15, 23, 42, .20)
+        }
+
+        .item-title {
+            font-weight: 800;
+            margin: 0 0 6px
+        }
+
+        .item-desc {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.55;
+            font-size: 14px
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px
+        }
+
+        .chip {
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .04);
+            color: var(--muted);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 18px;
+            padding: 18px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* Animations: fade + slide */
+        .reveal {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity .65s ease, transform .65s ease;
+            will-change: opacity, transform;
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+        /* Floating gradient ornaments */
+        .orb {
+            position: absolute;
+            inset: auto auto -140px -140px;
+            width: 320px;
+            height: 320px;
+            filter: blur(40px);
+            opacity: .55;
+            background: radial-gradient(circle at 30% 30%, rgba(110, 231, 255, .7), transparent 60%),
+                radial-gradient(circle at 70% 60%, rgba(167, 139, 250, .7), transparent 60%);
+            animation: float 6.5s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .orb2 {
+            position: absolute;
+            inset: -170px -170px auto auto;
+            width: 360px;
+            height: 360px;
+            filter: blur(45px);
+            opacity: .45;
+            background: radial-gradient(circle at 30% 30%, rgba(52, 211, 153, .65), transparent 60%),
+                radial-gradient(circle at 70% 60%, rgba(110, 231, 255, .55), transparent 60%);
+            animation: float 7.2s ease-in-out infinite reverse;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1)
+            }
+
+            50% {
+                transform: translate(18px, -14px) scale(1.04)
+            }
+        }
+
+        /* Print to PDF */
+        @media print {
+
+            .nav,
+            .hero-actions,
+            .nav-actions .btn,
+            .tag,
+            .orb,
+            .orb2 {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                color: #0b1020 !important;
+            }
+
+            .card {
+                box-shadow: none !important;
+                border-color: rgba(0, 0, 0, .12) !important;
+            }
+
+            .item {
+                border-color: rgba(0, 0, 0, .12) !important;
+            }
+
+            a {
+                color: #0b1020 !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="nav-inner">
+            <div class="brand">
+                <span class="dot"></span>
+                <span>Hoja de Vida</span>
+                <span class="muted">• 2025</span>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn" id="themeBtn" title="Cambiar tema">
+                    <span class="icon">🌓</span>
+                    <span>Tema</span>
+                </button>
+
+                <button class="btn" onclick="window.print()" title="Guardar como PDF">
+                    <span class="icon">🧾</span>
+                    <span>Descargar PDF</span>
+                </button>
+
+                <a class="btn btn-primary" href="https://wa.me/573225440012" target="_blank" rel="noopener">
+                    <span class="icon">💬</span>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <section class="hero">
+            <div class="card hero-left reveal">
+                <div class="orb"></div>
+                <div class="orb2"></div>
+
+                <div class="kicker">
+                    <span class="icon">⚡</span>
+                    <span><strong>Analista de Innovación y Desarrollo</strong></span>
+                    <span class="muted">• Full-Stack Web • Automatización</span>
+                </div>
+
+                <!-- ✅ Asegúrate que aquí esté bien tu nombre -->
+                <h1 class="title">Jhonnier <span
+                        style="background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent;">(MrProgramer)</span>
+                </h1>
+
+                <p class="subtitle">
+                    Desarrollo módulos web orientados a procesos (compras, cartera, reservas), integraciones con
+                    Supabase,
+                    control de versiones en GitHub y despliegues en Netlify / GitHub Pages. Enfoque en trazabilidad,
+                    automatización y buenas prácticas de seguridad.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="btn" href="https://github.com/MrProgramer1997?tab=repositories" target="_blank"
+                        rel="noopener">
+                        <span class="icon">🐙</span> GitHub
+                    </a>
+                    <!-- ⚠️ Me pasaste LinkedIn igual a GitHub: lo dejo así como lo enviaste -->
+                    <a class="btn" href="https://github.com/MrProgramer1997?tab=repositories" target="_blank"
+                        rel="noopener">
+                        <span class="icon">💼</span> LinkedIn
+                    </a>
+                    <a class="btn" href="#proyectos">
+                        <span class="icon">🧩</span> Ver proyectos
+                    </a>
+                </div>
+
+                <div class="pill-row">
+                    <span class="pill">✅ Supabase (DB + funciones + auth)</span>
+                    <span class="pill">✅ GitHub / GitHub Pages</span>
+                    <span class="pill">✅ Netlify</span>
+                    <span class="pill">✅ JavaScript / HTML / CSS</span>
+                    <span class="pill">✅ Trazabilidad / Flujos</span>
+                </div>
+            </div>
+
+            <div class="card hero-right reveal">
+                <div class="profile">
+                    <div class="profile-top">
+                        <!-- ✅ FOTO: reemplaza la ruta por tu imagen -->
+                        <img class="avatar" src="assets/pato.jpg" alt="Foto de perfil de Jhonnier" />
+
+                        <div>
+                            <p class="profile-name">Jhonnier</p>
+                            <p class="profile-role">Analista de Innovación y Desarrollo</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-grid">
+                        <a class="contact-item" href="https://wa.me/573225440012" target="_blank" rel="noopener">
+                            <div class="contact-left">
+                                <span class="icon">📱</span>
+                                <div>
+                                    <div class="contact-label">WhatsApp</div>
+                                    <div class="contact-value">+57 322 544 0012</div>
+                                </div>
+                            </div>
+                            <span class="tag">Abrir</span>
+                        </a>
+
+                        <a class="contact-item" href="https://github.com/MrProgramer1997?tab=repositories"
+                            target="_blank" rel="noopener">
+                            <div class="contact-left">
+                                <span class="icon">🐙</span>
+                                <div>
+                                    <div class="contact-label">GitHub</div>
+                                    <div class="contact-value">@MrProgramer1997</div>
+                                </div>
+                            </div>
+                            <span class="tag">Repos</span>
+                        </a>
+
+                        <a class="contact-item" href="https://github.com/MrProgramer1997?tab=repositories"
+                            target="_blank" rel="noopener">
+                            <div class="contact-left">
+                                <span class="icon">💼</span>
+                                <div>
+                                    <div class="contact-label">LinkedIn</div>
+                                    <div class="contact-value">Ver perfil</div>
+                                </div>
+                            </div>
+                            <span class="tag">Abrir</span>
+                        </a>
+                    </div>
+
+                    <div class="item" style="margin-top:6px">
+                        <p class="item-title">Resumen Profesional</p>
+                        <p class="item-desc">
+                            Me especializo en crear soluciones web para digitalizar procesos, reducir papel, mejorar la
+                            visibilidad del estado
+                            (tareas, aprobaciones, pagos) y mantener integraciones confiables con bases de datos.
+                            Trabajo con enfoque modular, escalable y orientado a resultados.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid">
+            <div class="card section reveal">
+                <div class="h">
+                    <h2>Habilidades Técnicas</h2>
+                    <span class="tag">Stack</span>
+                </div>
+                <div class="list">
+                    <div class="item">
+                        <p class="item-title">Frontend Web</p>
+                        <p class="item-desc">HTML, CSS moderno (layout responsive), JavaScript, validaciones, UX/UI,
+                            animaciones y componentes.</p>
+                        <div class="chips">
+                            <span class="chip">Responsive</span><span class="chip">Accesibilidad</span><span
+                                class="chip">Animaciones</span>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <p class="item-title">Backend / Datos</p>
+                        <p class="item-desc">Supabase: tablas, relaciones, funciones SQL, políticas (RLS), endpoints,
+                            integración con frontend.</p>
+                        <div class="chips">
+                            <span class="chip">PostgreSQL</span><span class="chip">Funciones</span><span
+                                class="chip">RLS</span>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <p class="item-title">DevOps básico</p>
+                        <p class="item-desc">Git/GitHub, GitHub Pages, Netlify, despliegues, manejo de ambientes y
+                            estructura por carpetas.</p>
+                        <div class="chips">
+                            <span class="chip">GitHub Pages</span><span class="chip">Netlify</span><span class="chip">CI
+                                simple</span>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <p class="item-title">Ciberseguridad / Forense (base)</p>
+                        <p class="item-desc">Autopsy, imágenes forenses, hashes MD5/SHA1, análisis de actividad, buenas
+                            prácticas de evidencia.</p>
+                        <div class="chips">
+                            <span class="chip">Autopsy</span><span class="chip">Kali Linux</span><span
+                                class="chip">Hashing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card section reveal" id="proyectos">
+                <div class="h">
+                    <h2>Proyectos Destacados</h2>
+                    <span class="tag">Portafolio</span>
+                </div>
+
+                <div class="list">
+                    <div class="item">
+                        <p class="item-title">Módulo de Compras (Web)</p>
+                        <p class="item-desc">
+                            Digitalización del proceso: solicitudes, trazabilidad, aprobaciones por área y soporte de
+                            adjuntos (cotizaciones).
+                            Pensado para crecimiento futuro y reducción de papel.
+                        </p>
+                        <div class="chips">
+                            <span class="chip">Trazabilidad</span><span class="chip">Aprobaciones</span><span
+                                class="chip">Supabase</span>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <p class="item-title">Módulo de Cartera / Estado de Cuenta</p>
+                        <p class="item-desc">
+                            Enfoque en cuotas pendientes, amortización de cupos y sincronización frecuente para reflejar
+                            pagos en tiempo casi real.
+                            Preparado para consumo por app externa.
+                        </p>
+                        <div class="chips">
+                            <span class="chip">Amortización</span><span class="chip">Sync</span><span class="chip">Panel
+                                Admin</span>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <p class="item-title">Reservas “Fiesta Blanco & Negro”</p>
+                        <p class="item-desc">
+                            Formulario web con selección de puestos, validaciones y envío a backend. Integración con
+                            Supabase y despliegue web.
+                        </p>
+                        <div class="chips">
+                            <span class="chip">UI interactiva</span><span class="chip">Validaciones</span><span
+                                class="chip">Deploy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid">
+            <div class="card section reveal">
+                <div class="h">
+                    <h2>Fortalezas</h2>
+                    <span class="tag">Soft skills</span>
+                </div>
+                <div class="list">
+                    <div class="item">
+                        <p class="item-title">Pensamiento estructurado</p>
+                        <p class="item-desc">Me gusta ordenar procesos, definir pasos, evidencias y métricas para que el
+                            sistema sea confiable.</p>
+                    </div>
+                    <div class="item">
+                        <p class="item-title">Mejora continua</p>
+                        <p class="item-desc">Itero rápido: prototipo → pruebo → ajusto → documento → despliego.</p>
+                    </div>
+                    <div class="item">
+                        <p class="item-title">Comunicación con áreas</p>
+                        <p class="item-desc">Traduzco necesidades de compras, cartera y administración a requerimientos
+                            funcionales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card section reveal">
+                <div class="h">
+                    <h2>Educación / Formación</h2>
+                    <span class="tag">Editable</span>
+                </div>
+                <div class="list">
+                    <div class="item">
+                        <p class="item-title">Administración en Sistemas / Seguridad (en progreso)</p>
+                        <p class="item-desc">Incluye módulos de seguridad en sistemas operativos y fundamentos de
+                            informática forense.</p>
+                    </div>
+                    <div class="item">
+                        <p class="item-title">Aprendizaje práctico</p>
+                        <p class="item-desc">Proyectos reales con Supabase + GitHub + despliegues, diseño de módulos y
+                            automatización.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="card reveal">
+            Hecho con ❤️ en HTML/CSS/JS • Publicable en GitHub Pages •
+            <a href="https://wa.me/573225440012" target="_blank" rel="noopener"><strong>Contáctame</strong></a>
+        </footer>
+    </main>
+
+    <script>
+        // Tema (dark/light) con persistencia
+        const themeBtn = document.getElementById("themeBtn");
+        const saved = localStorage.getItem("theme");
+        if (saved) { document.documentElement.setAttribute("data-theme", saved); }
+
+        themeBtn.addEventListener("click", () => {
+            const cur = document.documentElement.getAttribute("data-theme") || "dark";
+            const next = cur === "light" ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", next);
+            localStorage.setItem("theme", next);
+        });
+
+        // Reveal on scroll (animaciones al aparecer)
+        const io = new IntersectionObserver((entries) => {
+            for (const e of entries) {
+                if (e.isIntersecting) e.target.classList.add("in");
+            }
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+    </script>
+</body>
+
+</html>
