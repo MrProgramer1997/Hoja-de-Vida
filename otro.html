@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hoja de Vida | Jhonnier</title>
+    <meta name="description" content="Hoja de vida de Jhonnier - Analista TICS" />
+
+    <style>
+        :root {
+            --bg: #0b1020;
+            --bg2: #0f1733;
+            --card: rgba(255, 255, 255, .06);
+            --card2: rgba(255, 255, 255, .08);
+            --txt: rgba(255, 255, 255, .92);
+            --muted: rgba(255, 255, 255, .70);
+            --line: rgba(255, 255, 255, .12);
+            --brand: #6ee7ff;
+            --brand2: #a78bfa;
+            --ok: #34d399;
+            --warn: #fbbf24;
+            --shadow: 0 14px 60px rgba(0, 0, 0, .35);
+            --radius: 18px;
+            --max: 1100px;
+        }
+
+        [data-theme="light"] {
+            --bg: #f7f7fb;
+            --bg2: #ffffff;
+            --card: rgba(10, 20, 40, .06);
+            --card2: rgba(10, 20, 40, .08);
+            --txt: rgba(10, 20, 40, .92);
+            --muted: rgba(10, 20, 40, .70);
+            --line: rgba(10, 20, 40, .14);
+            --shadow: 0 16px 55px rgba(15, 23, 42, .15);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue";
+            color: var(--txt);
+            background:
+                radial-gradient(1200px 900px at 15% 10%, rgba(110, 231, 255, .15), transparent 55%),
+                radial-gradient(900px 700px at 85% 20%, rgba(167, 139, 250, .14), transparent 55%),
+                radial-gradient(900px 700px at 50% 100%, rgba(52, 211, 153, .10), transparent 60%),
+                linear-gradient(160deg, var(--bg), var(--bg2));
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .container {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 28px 18px 80px;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(12px);
+            background: linear-gradient(180deg, rgba(0, 0, 0, .25), rgba(0, 0, 0, 0));
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        [data-theme="light"] .nav {
+            background: linear-gradient(180deg, rgba(255, 255, 255, .75), rgba(255, 255, 255, 0));
+            border-bottom: 1px solid rgba(15, 23, 42, .08);
+        }
+
+        .nav-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 750;
+            letter-spacing: .2px;
+        }
+
+        .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--brand), var(--brand2));
+            box-shadow: 0 0 0 6px rgba(110, 231, 255, .07);
+            animation: pulse 2.2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%,100% { transform: scale(1); box-shadow: 0 0 0 6px rgba(110,231,255,.07)}
+            50% { transform: scale(1.15); box-shadow: 0 0 0 12px rgba(167,139,250,.08)}
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            border: 1px solid var(--line);
+            background: linear-gradient(180deg, var(--card2), var(--card));
+            color: var(--txt);
+            padding: 10px 12px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: transform .18s ease, background .18s ease, border-color .18s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+            user-select: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, .25)
+        }
+
+        .btn:active { transform: translateY(0px) scale(.99) }
+
+        .btn-primary {
+            border: none;
+            background: linear-gradient(135deg, var(--brand), var(--brand2));
+            color: rgba(10, 20, 40, .96);
+            font-weight: 800;
+        }
+
+        .icon { width:18px;height:18px;display:inline-block }
+        .muted { color:var(--muted) }
+
+        .hero {
+            margin-top: 26px;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 18px;
+            align-items: stretch;
+        }
+
+        @media (max-width: 920px) {
+            .hero { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            border: 1px solid var(--line);
+            background: linear-gradient(180deg, var(--card2), var(--card));
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-left { padding:26px }
+
+        .title {
+            margin: 14px 0 10px;
+            font-size: 44px;
+            line-height: 1.05;
+            letter-spacing: -0.8px;
+        }
+
+        .subtitle {
+            margin: 0 0 18px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--muted);
+            max-width: 60ch;
+        }
+
+        .profile-top {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        /* 🔥 AVATAR AJUSTADO PROFESIONALMENTE */
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid var(--brand);
+            object-fit: cover;
+            object-position: center;
+            background: rgba(255, 255, 255, .05);
+            box-shadow: 0 16px 45px rgba(0, 0, 0, .35);
+            flex-shrink: 0;
+        }
+
+        .profile-name {
+            font-weight: 850;
+            font-size: 18px;
+            margin: 0
+        }
+
+        .profile-role {
+            margin: 4px 0 0;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        footer {
+            margin-top: 18px;
+            padding: 18px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="nav">
+    <div class="nav-inner">
+        <div class="brand">
+            <span class="dot"></span>
+            <span>Hoja de Vida</span>
+            <span class="muted">• 2025</span>
+        </div>
+
+        <div class="nav-actions">
+            <a class="btn btn-primary" href="https://wa.me/573225440012" target="_blank">
+                <span class="icon">💬</span>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<main class="container">
+
+<section class="hero">
+
+<div class="card hero-left">
+    <h1 class="title">Jhonnier</h1>
+    <p class="subtitle">
+        Desarrollo módulos web orientados a procesos, integraciones con Supabase,
+        control de versiones en GitHub y despliegues en Netlify / GitHub Pages.
+    </p>
+</div>
+
+<div class="card">
+    <div class="profile-top">
+        <img class="avatar" src="assets/foto-jhonnier-2026.jpeg" alt="Foto de Jhonnier" />
+        <div>
+            <p class="profile-name">Jhonnier</p>
+            <p class="profile-role">Analista TICS</p>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<footer>
+Hecho con ❤️ en HTML/CSS/JS • Publicable en GitHub Pages
+</footer>
+
+</main>
+
+</body>
+</html>

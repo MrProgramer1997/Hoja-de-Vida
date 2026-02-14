@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Hoja de Vida | Jhonnier</title>
-    <meta name="description" content="Hoja de vida de Jhonnier - Analista TICS" />
+    <meta name="description" content="Hoja de vida de Jhonnier - Desarrollador web " />
 
     <style>
         :root {
@@ -281,14 +281,21 @@
         }
 
         .avatar {
-            width: 84px;
-            height: 84px;
-            border-radius: 18px;
-            border: 1px solid var(--line);
+            width: 130px;
+            /* tamaño */
+            height: 130px;
+            /* mismo alto que ancho */
+            border-radius: 50%;
+            /* redonda */
             object-fit: cover;
-            background: rgba(255, 255, 255, .05);
-            box-shadow: 0 14px 40px rgba(0, 0, 0, .25);
+            /* recorta sin deformar */
+            object-position: center 20%;
+            /* centra el rostro */
+            border: 3px solid var(--brand);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+            flex-shrink: 0;
         }
+
 
         .profile-name {
             font-weight: 850;
@@ -539,7 +546,7 @@
             <div class="brand">
                 <span class="dot"></span>
                 <span>Hoja de Vida</span>
-                <span class="muted">• 2025</span>
+                <span class="muted">• 2026</span>
             </div>
 
             <div class="nav-actions">
@@ -569,7 +576,7 @@
 
                 <div class="kicker">
                     <span class="icon">⚡</span>
-                    <span><strong>Analista TICS</strong></span>
+                    <span><strong>Desarrollador web</strong></span>
                     <span class="muted">• Full-Stack Web • Automatización</span>
                 </div>
 
@@ -591,12 +598,12 @@
                         <span class="icon">🐙</span> GitHub
                     </a>
                     <!-- ⚠️ Me pasaste LinkedIn igual a GitHub: lo dejo así como lo enviaste -->
-                    <a class="btn" href="https://github.com/MrProgramer1997?tab=repositories" target="_blank"
+                    <a class="btn" href="https://www.linkedin.com/in/jhonnier-villada-valencia-28b04b399/" target="_blank"
                         rel="noopener">
                         <span class="icon">💼</span> LinkedIn
                     </a>
                     <a class="btn" href="#proyectos">
-                        <span class="icon">🧩</span> Ver proyectos
+                        <span class="icon">🧩</span> Ver proyectos+
                     </a>
                 </div>
 
@@ -613,11 +620,12 @@
                 <div class="profile">
                     <div class="profile-top">
                         <!-- ✅ FOTO: reemplaza la ruta por tu imagen -->
-                        <img class="avatar" src="assets/pato.jpg" alt="Foto de perfil de Jhonnier" />
+                        <img class="avatar" src="assets/foto-jhonnier-2026.jpeg" alt="Foto de Jhonnier" />
+
 
                         <div>
                             <p class="profile-name">Jhonnier</p>
-                            <p class="profile-role">Analista TICS</p>
+                            <p class="profile-role">Desarrollador Web</p>
                         </div>
                     </div>
 
@@ -645,7 +653,7 @@
                             <span class="tag">Repos</span>
                         </a>
 
-                        <a class="contact-item" href="https://github.com/MrProgramer1997?tab=repositories"
+                        <a class="contact-item" href="https://www.linkedin.com/in/jhonnier-villada-valencia-28b04b399/"
                             target="_blank" rel="noopener">
                             <div class="contact-left">
                                 <span class="icon">💼</span>
@@ -813,7 +821,7 @@
         </section>
 
         <footer class="card reveal">
-            Hecho con ❤️ en HTML/CSS/JS • Publicable en GitHub Pages •
+            Hecho con ❤️ en HTML/CSS/JS •
             <a href="https://wa.me/573225440012" target="_blank" rel="noopener"><strong>Contáctame</strong></a>
         </footer>
     </main>
