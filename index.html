@@ -1,853 +1,643 @@
 <!doctype html>
 <html lang="es">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Hoja de Vida | Jhonnier</title>
-    <meta name="description" content="Hoja de vida de Jhonnier - Desarrollador web " />
-
-    <style>
-        :root {
-            --bg: #0b1020;
-            --bg2: #0f1733;
-            --card: rgba(255, 255, 255, .06);
-            --card2: rgba(255, 255, 255, .08);
-            --txt: rgba(255, 255, 255, .92);
-            --muted: rgba(255, 255, 255, .70);
-            --line: rgba(255, 255, 255, .12);
-            --brand: #6ee7ff;
-            --brand2: #a78bfa;
-            --ok: #34d399;
-            --warn: #fbbf24;
-            --shadow: 0 14px 60px rgba(0, 0, 0, .35);
-            --radius: 18px;
-            --max: 1100px;
-        }
-
-        [data-theme="light"] {
-            --bg: #f7f7fb;
-            --bg2: #ffffff;
-            --card: rgba(10, 20, 40, .06);
-            --card2: rgba(10, 20, 40, .08);
-            --txt: rgba(10, 20, 40, .92);
-            --muted: rgba(10, 20, 40, .70);
-            --line: rgba(10, 20, 40, .14);
-            --shadow: 0 16px 55px rgba(15, 23, 42, .15);
-        }
-
-        * {
-            box-sizing: border-box
-        }
-
-        html,
-        body {
-            height: 100%
-        }
-
-        body {
-            margin: 0;
-            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue";
-            color: var(--txt);
-            background:
-                radial-gradient(1200px 900px at 15% 10%, rgba(110, 231, 255, .15), transparent 55%),
-                radial-gradient(900px 700px at 85% 20%, rgba(167, 139, 250, .14), transparent 55%),
-                radial-gradient(900px 700px at 50% 100%, rgba(52, 211, 153, .10), transparent 60%),
-                linear-gradient(160deg, var(--bg), var(--bg2));
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none
-        }
-
-        .container {
-            max-width: var(--max);
-            margin: 0 auto;
-            padding: 28px 18px 80px;
-        }
-
-        .nav {
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            backdrop-filter: blur(12px);
-            background: linear-gradient(180deg, rgba(0, 0, 0, .25), rgba(0, 0, 0, 0));
-            border-bottom: 1px solid rgba(255, 255, 255, .06);
-        }
-
-        [data-theme="light"] .nav {
-            background: linear-gradient(180deg, rgba(255, 255, 255, .75), rgba(255, 255, 255, 0));
-            border-bottom: 1px solid rgba(15, 23, 42, .08);
-        }
-
-        .nav-inner {
-            max-width: var(--max);
-            margin: 0 auto;
-            padding: 14px 18px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 750;
-            letter-spacing: .2px;
-        }
-
-        .dot {
-            width: 11px;
-            height: 11px;
-            border-radius: 999px;
-            background: linear-gradient(135deg, var(--brand), var(--brand2));
-            box-shadow: 0 0 0 6px rgba(110, 231, 255, .07);
-            animation: pulse 2.2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 6px rgba(110, 231, 255, .07)
-            }
-
-            50% {
-                transform: scale(1.15);
-                box-shadow: 0 0 0 12px rgba(167, 139, 250, .08)
-            }
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap
-        }
-
-        .btn {
-            border: 1px solid var(--line);
-            background: linear-gradient(180deg, var(--card2), var(--card));
-            color: var(--txt);
-            padding: 10px 12px;
-            border-radius: 999px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: transform .18s ease, background .18s ease, border-color .18s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
-            user-select: none;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            border-color: rgba(255, 255, 255, .25)
-        }
-
-        [data-theme="light"] .btn:hover {
-            border-color: rgba(15, 23, 42, .22)
-        }
-
-        .btn:active {
-            transform: translateY(0px) scale(.99)
-        }
-
-        .btn-primary {
-            border: none;
-            background: linear-gradient(135deg, var(--brand), var(--brand2));
-            color: rgba(10, 20, 40, .96);
-            font-weight: 800;
-        }
-
-        .btn-primary:hover {
-            filter: saturate(1.1) contrast(1.05)
-        }
-
-        .icon {
-            width: 18px;
-            height: 18px;
-            display: inline-block
-        }
-
-        .muted {
-            color: var(--muted)
-        }
-
-        .hero {
-            margin-top: 26px;
-            display: grid;
-            grid-template-columns: 1.1fr .9fr;
-            gap: 18px;
-            align-items: stretch;
-        }
-
-        @media (max-width: 920px) {
-            .hero {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .card {
-            border: 1px solid var(--line);
-            background: linear-gradient(180deg, var(--card2), var(--card));
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .hero-left {
-            padding: 26px
-        }
-
-        .kicker {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 13px;
-            padding: 8px 12px;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, .04);
-        }
-
-        .title {
-            margin: 14px 0 10px;
-            font-size: 44px;
-            line-height: 1.05;
-            letter-spacing: -0.8px;
-        }
-
-        @media (max-width: 420px) {
-            .title {
-                font-size: 38px
-            }
-        }
-
-        .subtitle {
-            margin: 0 0 18px;
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--muted);
-            max-width: 60ch;
-        }
-
-        .pill-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 16px;
-        }
-
-        .pill {
-            padding: 9px 12px;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, .04);
-            font-size: 13px;
-            color: var(--muted);
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 16px;
-        }
-
-        /* Profile */
-        .hero-right {
-            padding: 18px
-        }
-
-        .profile {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            padding: 18px;
-        }
-
-        .profile-top {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .avatar {
-            width: 130px;
-            /* tamaño */
-            height: 130px;
-            /* mismo alto que ancho */
-            border-radius: 50%;
-            /* redonda */
-            object-fit: cover;
-            /* recorta sin deformar */
-            object-position: center 20%;
-            /* centra el rostro */
-            border: 3px solid var(--brand);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
-            flex-shrink: 0;
-        }
-
-
-        .profile-name {
-            font-weight: 850;
-            font-size: 18px;
-            margin: 0
-        }
-
-        .profile-role {
-            margin: 4px 0 0;
-            color: var(--muted);
-            font-size: 14px
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
-            margin-top: 8px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            padding: 12px;
-            border-radius: 14px;
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, .04);
-            transition: transform .18s ease, border-color .18s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-2px);
-            border-color: rgba(255, 255, 255, .22)
-        }
-
-        [data-theme="light"] .contact-item:hover {
-            border-color: rgba(15, 23, 42, .20)
-        }
-
-        .contact-left {
-            display: flex;
-            align-items: center;
-            gap: 10px
-        }
-
-        .contact-label {
-            font-size: 13px;
-            color: var(--muted)
-        }
-
-        .contact-value {
-            font-size: 14px;
-            font-weight: 700
-        }
-
-        .tag {
-            font-size: 12px;
-            padding: 6px 10px;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, .04);
-            color: var(--muted);
-            white-space: nowrap;
-        }
-
-        /* Sections */
-        .grid {
-            margin-top: 18px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-        }
-
-        @media (max-width: 900px) {
-            .grid {
-                grid-template-columns: 1fr
-            }
-        }
-
-        .section {
-            padding: 18px;
-        }
-
-        .h {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
-        .h h2 {
-            margin: 0;
-            font-size: 16px;
-            letter-spacing: .2px;
-        }
-
-        .list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .item {
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, .04);
-            border-radius: 14px;
-            padding: 12px;
-            transition: transform .18s ease, border-color .18s ease;
-        }
-
-        .item:hover {
-            transform: translateY(-2px);
-            border-color: rgba(255, 255, 255, .22)
-        }
-
-        [data-theme="light"] .item:hover {
-            border-color: rgba(15, 23, 42, .20)
-        }
-
-        .item-title {
-            font-weight: 800;
-            margin: 0 0 6px
-        }
-
-        .item-desc {
-            margin: 0;
-            color: var(--muted);
-            line-height: 1.55;
-            font-size: 14px
-        }
-
-        .chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px
-        }
-
-        .chip {
-            font-size: 12px;
-            padding: 6px 10px;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, .04);
-            color: var(--muted);
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 18px;
-            padding: 18px;
-            text-align: center;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        /* Animations: fade + slide */
-        .reveal {
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity .65s ease, transform .65s ease;
-            will-change: opacity, transform;
-        }
-
-        .reveal.in {
-            opacity: 1;
-            transform: translateY(0px);
-        }
-
-        /* Floating gradient ornaments */
-        .orb {
-            position: absolute;
-            inset: auto auto -140px -140px;
-            width: 320px;
-            height: 320px;
-            filter: blur(40px);
-            opacity: .55;
-            background: radial-gradient(circle at 30% 30%, rgba(110, 231, 255, .7), transparent 60%),
-                radial-gradient(circle at 70% 60%, rgba(167, 139, 250, .7), transparent 60%);
-            animation: float 6.5s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        .orb2 {
-            position: absolute;
-            inset: -170px -170px auto auto;
-            width: 360px;
-            height: 360px;
-            filter: blur(45px);
-            opacity: .45;
-            background: radial-gradient(circle at 30% 30%, rgba(52, 211, 153, .65), transparent 60%),
-                radial-gradient(circle at 70% 60%, rgba(110, 231, 255, .55), transparent 60%);
-            animation: float 7.2s ease-in-out infinite reverse;
-            pointer-events: none;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1)
-            }
-
-            50% {
-                transform: translate(18px, -14px) scale(1.04)
-            }
-        }
-
-        /* Print to PDF */
-        @media print {
-
-            .nav,
-            .hero-actions,
-            .nav-actions .btn,
-            .tag,
-            .orb,
-            .orb2 {
-                display: none !important;
-            }
-
-            body {
-                background: white !important;
-                color: #0b1020 !important;
-            }
-
-            .card {
-                box-shadow: none !important;
-                border-color: rgba(0, 0, 0, .12) !important;
-            }
-
-            .item {
-                border-color: rgba(0, 0, 0, .12) !important;
-            }
-
-            a {
-                color: #0b1020 !important
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hoja de Vida | Jhonnier Villada - Tecnología y Sistemas</title>
+  <meta name="description" content="Hoja de vida de Jhonnier Villada. Tecnología y sistemas, infraestructura, redes, soporte, ciberseguridad y desarrollo de software." />
+
+  <style>
+    :root {
+      --bg: #08111f;
+      --bg2: #0f1c31;
+      --card: rgba(255, 255, 255, .055);
+      --card-strong: rgba(255, 255, 255, .085);
+      --text: rgba(255, 255, 255, .94);
+      --muted: rgba(255, 255, 255, .68);
+      --line: rgba(255, 255, 255, .12);
+      --brand: #67e8f9;
+      --brand2: #8b5cf6;
+      --ok: #34d399;
+      --shadow: 0 18px 60px rgba(0, 0, 0, .34);
+      --radius: 18px;
+      --max: 1160px;
+    }
+
+    [data-theme="light"] {
+      --bg: #f4f7fb;
+      --bg2: #ffffff;
+      --card: rgba(15, 23, 42, .045);
+      --card-strong: rgba(15, 23, 42, .075);
+      --text: #0f172a;
+      --muted: rgba(15, 23, 42, .68);
+      --line: rgba(15, 23, 42, .13);
+      --shadow: 0 16px 48px rgba(15, 23, 42, .12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1100px 820px at 10% 5%, rgba(103, 232, 249, .14), transparent 55%),
+        radial-gradient(900px 720px at 88% 16%, rgba(139, 92, 246, .14), transparent 55%),
+        linear-gradient(155deg, var(--bg), var(--bg2));
+    }
+
+    a { color: inherit; text-decoration: none; }
+    strong { color: var(--text); }
+    .muted { color: var(--muted); }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(8, 17, 31, .68);
+      border-bottom: 1px solid var(--line);
+    }
+    [data-theme="light"] .nav { background: rgba(255, 255, 255, .82); }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: .1px;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 0 6px rgba(103, 232, 249, .07);
+    }
+
+    .nav-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .btn {
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--text);
+      padding: 9px 13px;
+      border-radius: 999px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      transition: .18s ease;
+    }
+    .btn:hover { transform: translateY(-1px); background: var(--card-strong); }
+    .btn-primary {
+      border: 0;
+      color: #07111f;
+      background: linear-gradient(135deg, var(--brand), #a78bfa);
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 18px 72px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--card-strong), var(--card));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .hero-main { padding: 30px; position: relative; overflow: hidden; }
+    .hero-side { padding: 20px; }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .45px;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(255,255,255,.03);
+    }
+
+    h1 {
+      margin: 16px 0 8px;
+      font-size: clamp(40px, 6vw, 64px);
+      line-height: .98;
+      letter-spacing: -1.9px;
+    }
+
+    .role {
+      margin: 0 0 16px;
+      font-size: 21px;
+      line-height: 1.35;
+      font-weight: 750;
+      background: linear-gradient(135deg, var(--brand), #b9a6ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      max-width: 78ch;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.72;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      border-radius: 14px;
+      padding: 13px;
+    }
+    .metric strong { display: block; font-size: 20px; margin-bottom: 3px; }
+    .metric span { color: var(--muted); font-size: 12px; line-height: 1.35; }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+
+    .profile {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .profile-top { display: flex; align-items: center; gap: 14px; }
+    .avatar {
+      width: 112px;
+      height: 112px;
+      border-radius: 20px;
+      object-fit: cover;
+      object-position: center 20%;
+      border: 2px solid rgba(103, 232, 249, .65);
+      box-shadow: 0 15px 40px rgba(0,0,0,.28);
+      flex-shrink: 0;
+    }
+    .profile-name { margin: 0; font-weight: 850; font-size: 18px; }
+    .profile-role { margin: 4px 0 0; color: var(--muted); font-size: 13px; line-height: 1.45; }
+
+    .contact-list { display: grid; gap: 8px; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 11px;
+      background: rgba(255,255,255,.03);
+      font-size: 13px;
+    }
+    .contact-item span:first-child { color: var(--muted); }
+    .contact-item strong { font-size: 13px; text-align: right; overflow-wrap: anywhere; }
+
+    .mini-note {
+      margin-top: auto;
+      border: 1px solid rgba(52, 211, 153, .26);
+      border-radius: 14px;
+      padding: 12px;
+      background: rgba(52, 211, 153, .06);
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.55;
+    }
+
+    .section-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .section { padding: 20px; }
+    .section.full { grid-column: 1 / -1; }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 13px;
+    }
+    .section-head h2 { margin: 0; font-size: 17px; letter-spacing: .1px; }
+    .section-head span { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; }
+
+    .list { display: grid; gap: 10px; }
+    .item {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+      padding: 13px;
+    }
+    .item h3 { margin: 0 0 6px; font-size: 14px; }
+    .item p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.58; }
+    .item ul { margin: 8px 0 0 18px; padding: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .item li + li { margin-top: 5px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+    .chip {
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.025);
+      color: var(--muted);
+      font-size: 11.5px;
+      white-space: nowrap;
+    }
+
+    .timeline { display: grid; gap: 11px; }
+    .job {
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 15px;
+      background: rgba(255,255,255,.03);
+    }
+    .job-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 8px;
+    }
+    .job h3 { margin: 0; font-size: 15px; }
+    .job-company { margin-top: 3px; color: var(--muted); font-size: 13px; }
+    .job-date { color: var(--brand); font-size: 12px; font-weight: 800; white-space: nowrap; }
+    .job ul { margin: 9px 0 0 18px; padding: 0; color: var(--muted); font-size: 13px; line-height: 1.58; }
+    .job li + li { margin-top: 5px; }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .skill-box { border: 1px solid var(--line); border-radius: 13px; padding: 12px; background: rgba(255,255,255,.03); }
+    .skill-box h3 { margin: 0 0 6px; font-size: 13px; }
+    .skill-box p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+
+    .footer {
+      margin-top: 16px;
+      padding: 16px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .reveal { opacity: 0; transform: translateY(8px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 940px) {
+      .hero, .section-grid { grid-template-columns: 1fr; }
+      .section.full { grid-column: auto; }
+      .metric-row { grid-template-columns: repeat(2, 1fr); }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .container { padding: 18px 12px 48px; }
+      .nav-inner { padding: 10px 12px; }
+      .nav .muted, #themeBtn span:last-child { display: none; }
+      .hero-main { padding: 22px; }
+      .hero-side { padding: 16px; }
+      .metric-row, .skills-grid { grid-template-columns: 1fr; }
+      .profile-top { align-items: flex-start; }
+      .avatar { width: 92px; height: 92px; }
+      .job-top { grid-template-columns: 1fr; gap: 5px; }
+      .job-date { white-space: normal; }
+    }
+
+    @media print {
+      @page { size: A4; margin: 11mm; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: #fff !important; color: #111827 !important; font-size: 10.5pt; }
+      .nav, .actions { display: none !important; }
+      .container { max-width: none; padding: 0; }
+      .card, .item, .job, .skill-box, .metric, .contact-item, .mini-note {
+        box-shadow: none !important;
+        background: #fff !important;
+        border-color: #d7dde6 !important;
+        break-inside: avoid;
+      }
+      .hero { grid-template-columns: 1.38fr .62fr; gap: 10px; }
+      .hero-main { padding: 18px; }
+      .hero-side, .section { padding: 14px; }
+      h1 { color: #0f172a !important; font-size: 34px; }
+      .role { color: #0f5f79 !important; -webkit-text-fill-color: #0f5f79; }
+      .lead, .muted, .item p, .job-company, .job ul, .skill-box p, .contact-item span:first-child, .mini-note { color: #475569 !important; }
+      strong, .job h3, .item h3, .section-head h2, .profile-name { color: #0f172a !important; }
+      .job-date { color: #0f5f79 !important; }
+      .section-grid { gap: 10px; margin-top: 10px; }
+      .section-head { margin-bottom: 8px; }
+      .list, .timeline { gap: 7px; }
+      .skills-grid { gap: 7px; }
+      .footer { display: none; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="nav">
-        <div class="nav-inner">
-            <div class="brand">
-                <span class="dot"></span>
-                <span>Hoja de Vida</span>
-                <span class="muted">• 2026</span>
-            </div>
-
-            <div class="nav-actions">
-                <button class="btn" id="themeBtn" title="Cambiar tema">
-                    <span class="icon">🌓</span>
-                    <span>Tema</span>
-                </button>
-
-                <button class="btn" onclick="window.print()" title="Guardar como PDF">
-                    <span class="icon">🧾</span>
-                    <span>Descargar PDF</span>
-                </button>
-
-                <a class="btn btn-primary" href="https://wa.me/573225440012" target="_blank" rel="noopener">
-                    <span class="icon">💬</span>
-                    <span>WhatsApp</span>
-                </a>
-            </div>
-        </div>
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span>Jhonnier Villada</span>
+        <span class="muted">Hoja de vida 2026</span>
+      </div>
+      <div class="nav-actions">
+        <button class="btn" id="themeBtn" type="button" title="Cambiar tema"><span>Tema</span></button>
+        <button class="btn" type="button" onclick="window.print()" title="Guardar como PDF"><span>Descargar PDF</span></button>
+        <a class="btn btn-primary" href="https://wa.me/573225440012" target="_blank" rel="noopener">Contactar</a>
+      </div>
     </div>
+  </div>
 
-    <main class="container">
-        <section class="hero">
-            <div class="card hero-left reveal">
-                <div class="orb"></div>
-                <div class="orb2"></div>
+  <main class="container">
+    <section class="hero">
+      <article class="card hero-main reveal">
+        <div class="kicker">Tecnología y Sistemas · Infraestructura · Redes · Desarrollo</div>
+        <h1>Jhonnier Villada</h1>
+        <p class="role">Analista de Innovación y Desarrollo | Liderazgo técnico de infraestructura y soluciones TI</p>
+        <p class="lead">
+          Profesional en formación en <strong>Administración de Sistemas (10.º semestre)</strong>, con trayectoria en soporte técnico,
+          infraestructura de redes, conectividad, continuidad operativa y desarrollo de software. Experiencia liderando técnicamente
+          redes e infraestructura en el Club Campestre de Pereira, ejecutando proyectos de fibra óptica, switching, wireless, seguridad
+          perimetral y CCTV; además de desarrollar e integrar soluciones web y plataformas empresariales para optimizar procesos internos.
+        </p>
 
-                <div class="kicker">
-                    <span class="icon">⚡</span>
-                    <span><strong>Desarrollador web</strong></span>
-                    <span class="muted">• Full-Stack Web • Automatización</span>
-                </div>
+        <div class="metric-row" aria-label="Resumen de experiencia">
+          <div class="metric"><strong>7+ años</strong><span>Trayectoria reportada en soporte y tecnología</span></div>
+          <div class="metric"><strong>5 años</strong><span>Redes, infraestructura y liderazgo técnico</span></div>
+          <div class="metric"><strong>2 años</strong><span>Desarrollo de software y automatización</span></div>
+          <div class="metric"><strong>10.º semestre</strong><span>Administración de Sistemas</span></div>
+        </div>
 
-                <!-- ✅ Asegúrate que aquí esté bien tu nombre -->
-                <h1 class="title">Jhonnier <span
-                        style="background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent;">(MrProgramer)</span>
-                </h1>
+        <div class="actions">
+          <a class="btn" href="https://github.com/MrProgramer1997?tab=repositories" target="_blank" rel="noopener">GitHub / Portafolio</a>
+          <a class="btn" href="https://www.linkedin.com/in/jhonnier-villada-valencia-28b04b399/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="#experiencia">Experiencia profesional</a>
+        </div>
+      </article>
 
-                <p class="subtitle">
-                    Desarrollo módulos web orientados a procesos (compras, cartera, reservas), integraciones con
-                    Supabase,
-                    control de versiones en GitHub y despliegues en Netlify / GitHub Pages. Enfoque en trazabilidad,
-                    automatización y buenas prácticas de seguridad.
-                </p>
-
-                <div class="hero-actions">
-                    <a class="btn" href="https://github.com/MrProgramer1997?tab=repositories" target="_blank"
-                        rel="noopener">
-                        <span class="icon">🐙</span> GitHub
-                    </a>
-                    <!-- ⚠️ Me pasaste LinkedIn igual a GitHub: lo dejo así como lo enviaste -->
-                    <a class="btn" href="https://www.linkedin.com/in/jhonnier-villada-valencia-28b04b399/" target="_blank"
-                        rel="noopener">
-                        <span class="icon">💼</span> LinkedIn
-                    </a>
-                    <a class="btn" href="#proyectos">
-                        <span class="icon">🧩</span> Ver proyectos+
-                    </a>
-                </div>
-
-                <div class="pill-row">
-                    <span class="pill">✅ Supabase (DB + funciones + auth)</span>
-                    <span class="pill">✅ GitHub / GitHub Pages</span>
-                    <span class="pill">✅ Netlify</span>
-                    <span class="pill">✅ JavaScript / HTML / CSS</span>
-                    <span class="pill">✅ Trazabilidad / Flujos</span>
-                </div>
+      <aside class="card hero-side reveal">
+        <div class="profile">
+          <div class="profile-top">
+            <img class="avatar" src="assets/foto-jhonnier-2026.jpeg" alt="Fotografía profesional de Jhonnier Villada" />
+            <div>
+              <p class="profile-name">Jhonnier Alberto Villada Valencia</p>
+              <p class="profile-role">Tecnología y Sistemas · Infraestructura · Redes · Desarrollo</p>
             </div>
+          </div>
 
-            <div class="card hero-right reveal">
-                <div class="profile">
-                    <div class="profile-top">
-                        <!-- ✅ FOTO: reemplaza la ruta por tu imagen -->
-                        <img class="avatar" src="assets/foto-jhonnier-2026.jpeg" alt="Foto de Jhonnier" />
+          <div class="contact-list">
+            <a class="contact-item" href="mailto:jhonniervillada538@gmail.com"><span>Correo</span><strong>jhonniervillada538@gmail.com</strong></a>
+            <a class="contact-item" href="tel:+573225440012"><span>Teléfono</span><strong>+57 322 544 0012</strong></a>
+            <a class="contact-item" href="https://github.com/MrProgramer1997" target="_blank" rel="noopener"><span>GitHub</span><strong>@MrProgramer1997</strong></a>
+            <div class="contact-item"><span>Idioma</span><strong>Español nativo · Inglés A1</strong></div>
+          </div>
 
+          <div class="mini-note">
+            Perfil orientado a posiciones de coordinación o jefatura TI: combina soporte, redes, seguridad, plataformas empresariales,
+            bases de datos y desarrollo, con conocimiento directo de la operación tecnológica y atención a usuarios internos.
+          </div>
+        </div>
+      </aside>
+    </section>
 
-                        <div>
-                            <p class="profile-name">Jhonnier</p>
-                            <p class="profile-role">Desarrollador Web</p>
-                        </div>
-                    </div>
+    <section class="section-grid">
+      <article class="card section reveal">
+        <div class="section-head">
+          <h2>Competencias clave para Tecnología y Sistemas</h2>
+          <span>Gestión TI</span>
+        </div>
+        <div class="list">
+          <div class="item">
+            <h3>Liderazgo técnico e infraestructura</h3>
+            <p>Supervisión y ejecución de proyectos de conectividad, fibra óptica, racks, cableado estructurado, switching, wireless y CCTV. Coordinación técnica con áreas internas, proveedores y necesidades operativas.</p>
+          </div>
+          <div class="item">
+            <h3>Seguridad y continuidad operativa</h3>
+            <p>Administración y configuración de soluciones Fortinet, segmentación de red, VPN, control de conectividad y soporte preventivo/correctivo con enfoque en disponibilidad del servicio y reducción de incidentes.</p>
+          </div>
+          <div class="item">
+            <h3>Soporte técnico y mesa de ayuda</h3>
+            <p>Atención presencial y remota a usuarios, diagnóstico de hardware y software, impresoras, sistemas operativos, respaldos, instalación de software corporativo y acompañamiento a la operación.</p>
+          </div>
+          <div class="item">
+            <h3>Desarrollo, datos e integraciones</h3>
+            <p>Desarrollo de módulos web, automatización de procesos, bases de datos relacionales e integración con plataformas empresariales y biométricas.</p>
+          </div>
+        </div>
+      </article>
 
-                    <div class="contact-grid">
-                        <a class="contact-item" href="https://wa.me/573225440012" target="_blank" rel="noopener">
-                            <div class="contact-left">
-                                <span class="icon">📱</span>
-                                <div>
-                                    <div class="contact-label">WhatsApp</div>
-                                    <div class="contact-value">+57 322 544 0012</div>
-                                </div>
-                            </div>
-                            <span class="tag">Abrir</span>
-                        </a>
+      <article class="card section reveal">
+        <div class="section-head">
+          <h2>Stack y plataformas</h2>
+          <span>Conocimientos</span>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-box"><h3>Redes</h3><p>TCP/IP, VLAN, switching, routing básico, Wi-Fi empresarial, VPN, cableado estructurado y fibra óptica.</p></div>
+          <div class="skill-box"><h3>Seguridad</h3><p>Fortinet, segmentación, políticas de acceso, ESET y buenas prácticas de ciberseguridad.</p></div>
+          <div class="skill-box"><h3>Desarrollo</h3><p>HTML, CSS, JavaScript, TypeScript, React, Node.js, APIs REST y Git/GitHub.</p></div>
+          <div class="skill-box"><h3>Bases de datos</h3><p>PostgreSQL, Supabase, SQL, SQL Server, relaciones, consultas, funciones y control de acceso.</p></div>
+          <div class="skill-box"><h3>Plataformas</h3><p>ERP Prosof, ZKTeco BioTime, Power BI, GitHub Pages y herramientas de administración tecnológica.</p></div>
+          <div class="skill-box"><h3>Operación TI</h3><p>Soporte a usuarios, mantenimiento, inventario técnico, documentación, diagnóstico y mejora continua.</p></div>
+        </div>
+      </article>
+    </section>
 
-                        <a class="contact-item" href="https://github.com/MrProgramer1997?tab=repositories"
-                            target="_blank" rel="noopener">
-                            <div class="contact-left">
-                                <span class="icon">🐙</span>
-                                <div>
-                                    <div class="contact-label">GitHub</div>
-                                    <div class="contact-value">@MrProgramer1997</div>
-                                </div>
-                            </div>
-                            <span class="tag">Repos</span>
-                        </a>
+    <section class="section-grid" id="experiencia">
+      <article class="card section full reveal">
+        <div class="section-head">
+          <h2>Experiencia profesional</h2>
+          <span>Trayectoria</span>
+        </div>
 
-                        <a class="contact-item" href="https://www.linkedin.com/in/jhonnier-villada-valencia-28b04b399/"
-                            target="_blank" rel="noopener">
-                            <div class="contact-left">
-                                <span class="icon">💼</span>
-                                <div>
-                                    <div class="contact-label">LinkedIn</div>
-                                    <div class="contact-value">Ver perfil</div>
-                                </div>
-                            </div>
-                            <span class="tag">Abrir</span>
-                        </a>
-                    </div>
-
-                    <div class="item" style="margin-top:6px">
-                        <p class="item-title">Resumen Profesional</p>
-                        <p class="item-desc">
-                            Me especializo en crear soluciones web para digitalizar procesos, reducir papel, mejorar la
-                            visibilidad del estado
-                            (tareas, aprobaciones, pagos) y mantener integraciones confiables con bases de datos.
-                            Trabajo con enfoque modular, escalable y orientado a resultados.
-                        </p>
-                    </div>
-                </div>
+        <div class="timeline">
+          <div class="job">
+            <div class="job-top">
+              <div>
+                <h3>Analista de Innovación y Desarrollo</h3>
+                <div class="job-company">Corporación Club Campestre de Pereira</div>
+              </div>
+              <div class="job-date">Enero 2023 - Actualidad</div>
             </div>
-        </section>
+            <ul>
+              <li>Liderazgo técnico de la infraestructura de redes y conectividad, con participación en diagnóstico, diseño, implementación y mejora de soluciones.</li>
+              <li>Supervisión e implementación de proyectos de fibra óptica, racks de comunicaciones, cableado estructurado, switching, access points y CCTV.</li>
+              <li>Configuración y administración de infraestructura Fortinet y equipos de red de fabricantes como Ruijie, FortiAP, Ubiquiti y TP-Link.</li>
+              <li>Soporte técnico a usuarios y acompañamiento a la operación para mantener la continuidad de los servicios tecnológicos.</li>
+              <li>Desarrollo de módulos web y automatizaciones para procesos internos, utilizando JavaScript/TypeScript, React, Supabase/PostgreSQL, Git y GitHub.</li>
+              <li>Integración y soporte de plataformas empresariales, biometría y datos, incluyendo ERP Prosof, ZKTeco BioTime y tableros en Power BI.</li>
+              <li>Levantamiento de requerimientos con áreas usuarias, análisis de necesidades, pruebas, documentación y puesta en producción de soluciones.</li>
+            </ul>
+          </div>
 
-        <section class="grid">
-            <div class="card section reveal">
-                <div class="h">
-                    <h2>Habilidades Técnicas</h2>
-                    <span class="tag">Stack</span>
-                </div>
-                <div class="list">
-                    <div class="item">
-                        <p class="item-title">Frontend Web</p>
-                        <p class="item-desc">HTML, CSS moderno (layout responsive), JavaScript, validaciones, UX/UI,
-                            animaciones y componentes.</p>
-                        <div class="chips">
-                            <span class="chip">Responsive</span><span class="chip">Accesibilidad</span><span
-                                class="chip">Animaciones</span>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <p class="item-title">Backend / Datos</p>
-                        <p class="item-desc">Supabase: tablas, relaciones, funciones SQL, políticas (RLS), endpoints,
-                            integración con frontend.</p>
-                        <div class="chips">
-                            <span class="chip">PostgreSQL</span><span class="chip">Funciones</span><span
-                                class="chip">RLS</span>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <p class="item-title">DevOps básico</p>
-                        <p class="item-desc">Git/GitHub, GitHub Pages, Netlify, despliegues, manejo de ambientes y
-                            estructura por carpetas.</p>
-                        <div class="chips">
-                            <span class="chip">GitHub Pages</span><span class="chip">Netlify</span><span class="chip">CI
-                                simple</span>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <p class="item-title">Ciberseguridad / Forense (base)</p>
-                        <p class="item-desc">Autopsy, imágenes forenses, hashes MD5/SHA1, análisis de actividad, buenas
-                            prácticas de evidencia.</p>
-                        <div class="chips">
-                            <span class="chip">Autopsy</span><span class="chip">Kali Linux</span><span
-                                class="chip">Hashing</span>
-                        </div>
-                    </div>
-                </div>
+          <div class="job">
+            <div class="job-top">
+              <div>
+                <h3>Soporte Técnico</h3>
+                <div class="job-company">GlobalDoc S.A.S.</div>
+              </div>
+              <div class="job-date">2021 - Enero 2023</div>
             </div>
+            <ul>
+              <li>Soporte presencial y remoto a la operación de impresión de Comfamiliar Risaralda.</li>
+              <li>Configuración de impresoras mediante servidores, host y direccionamiento IP.</li>
+              <li>Diagnóstico, reparación y mantenimiento preventivo de equipos de impresión a nivel de hardware.</li>
+              <li>Atención de incidentes y acompañamiento a usuarios para restablecer el servicio.</li>
+            </ul>
+          </div>
 
-            <div class="card section reveal" id="proyectos">
-                <div class="h">
-                    <h2>Proyectos Destacados</h2>
-                    <span class="tag">Portafolio</span>
-                </div>
-
-                <div class="list">
-                    <div class="item">
-                        <p class="item-title">Módulo de Compras (Web)</p>
-                        <p class="item-desc">
-                            Digitalización del proceso: solicitudes, trazabilidad, aprobaciones por área y soporte de
-                            adjuntos (cotizaciones).
-                            Pensado para crecimiento futuro y reducción de papel.
-                        </p>
-                        <div class="chips">
-                            <span class="chip">Trazabilidad</span><span class="chip">Aprobaciones</span><span
-                                class="chip">Supabase</span>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <p class="item-title">Módulo de Cartera / Estado de Cuenta</p>
-                        <p class="item-desc">
-                            Enfoque en cuotas pendientes, amortización de cupos y sincronización frecuente para reflejar
-                            pagos en tiempo casi real.
-                            Preparado para consumo por app externa.
-                        </p>
-                        <div class="chips">
-                            <span class="chip">Amortización</span><span class="chip">Sync</span><span class="chip">Panel
-                                Admin</span>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <p class="item-title">Reservas “Fiesta Blanco & Negro”</p>
-                        <p class="item-desc">
-                            Formulario web con selección de puestos, validaciones y envío a backend. Integración con
-                            Supabase y despliegue web.
-                        </p>
-                        <div class="chips">
-                            <span class="chip">UI interactiva</span><span class="chip">Validaciones</span><span
-                                class="chip">Deploy</span>
-                        </div>
-                    </div>
-                </div>
+          <div class="job">
+            <div class="job-top">
+              <div>
+                <h3>Practicante de Sistemas</h3>
+                <div class="job-company">Comfamiliar Risaralda</div>
+              </div>
+              <div class="job-date">Enero 2020 - 2021</div>
             </div>
-        </section>
+            <ul>
+              <li>Mantenimiento preventivo y correctivo de equipos de cómputo.</li>
+              <li>Configuración de VPN, clonación de equipos, backups e instalación de software corporativo.</li>
+              <li>Implementación de acciones de mejora y soporte a usuarios.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
 
-        <section class="grid">
-            <div class="card section reveal">
-                <div class="h">
-                    <h2>Fortalezas</h2>
-                    <span class="tag">Soft skills</span>
-                </div>
-                <div class="list">
-                    <div class="item">
-                        <p class="item-title">Pensamiento estructurado</p>
-                        <p class="item-desc">Me gusta ordenar procesos, definir pasos, evidencias y métricas para que el
-                            sistema sea confiable.</p>
-                    </div>
-                    <div class="item">
-                        <p class="item-title">Mejora continua</p>
-                        <p class="item-desc">Itero rápido: prototipo → pruebo → ajusto → documento → despliego.</p>
-                    </div>
-                    <div class="item">
-                        <p class="item-title">Comunicación con áreas</p>
-                        <p class="item-desc">Traduzco necesidades de compras, cartera y administración a requerimientos
-                            funcionales.</p>
-                    </div>
-                </div>
-            </div>
+    <section class="section-grid">
+      <article class="card section reveal">
+        <div class="section-head">
+          <h2>Educación</h2>
+          <span>Formación</span>
+        </div>
+        <div class="list">
+          <div class="item">
+            <h3>Administración de Sistemas</h3>
+            <p><strong>Universidad Comfamiliar Risaralda</strong><br>2022 - Actualidad · 10.º semestre.</p>
+          </div>
+          <div class="item">
+            <h3>Técnico Laboral por Competencias en Sistemas</h3>
+            <p><strong>Instituto Comfamiliar Risaralda</strong><br>2019 - 2021.</p>
+          </div>
+        </div>
+      </article>
 
-            <div class="card section reveal">
-                <div class="h">
-                    <h2>Educación / Formación</h2>
-                    <span class="tag">Editable</span>
-                </div>
-                <div class="list">
-                    <div class="item">
-                        <p class="item-title">Administración en Sistemas / Seguridad (en progreso)</p>
-                        <p class="item-desc">Incluye módulos de seguridad en sistemas operativos y fundamentos de
-                            informática forense.</p>
-                    </div>
-                    <div class="item">
-                        <p class="item-title">Aprendizaje práctico</p>
-                        <p class="item-desc">Proyectos reales con Supabase + GitHub + despliegues, diseño de módulos y
-                            automatización.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <article class="card section reveal">
+        <div class="section-head">
+          <h2>Proyectos y logros relevantes</h2>
+          <span>Impacto</span>
+        </div>
+        <div class="list">
+          <div class="item">
+            <h3>Modernización y continuidad de red</h3>
+            <p>Participación técnica en proyectos de conectividad, enlaces de fibra, segmentación, switching, Wi-Fi, CCTV y optimización de puntos de red para mejorar estabilidad y cobertura.</p>
+          </div>
+          <div class="item">
+            <h3>Digitalización de procesos internos</h3>
+            <p>Diseño y desarrollo de módulos web para programación, registros, aprobaciones y reportes, con bases de datos PostgreSQL/Supabase e integración con sistemas existentes.</p>
+          </div>
+          <div class="item">
+            <h3>Integraciones operativas</h3>
+            <p>Trabajo con plataformas biométricas, ERP y analítica para conectar información operativa, reducir tareas manuales y mejorar trazabilidad.</p>
+          </div>
+        </div>
+      </article>
+    </section>
 
-        <footer class="card reveal">
-            Hecho con ❤️ en HTML/CSS/JS •
-            <a href="https://wa.me/573225440012" target="_blank" rel="noopener"><strong>Contáctame</strong></a>
-        </footer>
-    </main>
+    <section class="section-grid">
+      <article class="card section reveal">
+        <div class="section-head">
+          <h2>Fortalezas profesionales</h2>
+          <span>Liderazgo</span>
+        </div>
+        <div class="chips">
+          <span class="chip">Resolución de problemas</span>
+          <span class="chip">Liderazgo técnico</span>
+          <span class="chip">Mejora continua</span>
+          <span class="chip">Comunicación con áreas</span>
+          <span class="chip">Documentación</span>
+          <span class="chip">Priorización de incidentes</span>
+          <span class="chip">Orientación al servicio</span>
+          <span class="chip">Adaptabilidad</span>
+        </div>
+      </article>
 
-    <script>
-        // Tema (dark/light) con persistencia
-        const themeBtn = document.getElementById("themeBtn");
-        const saved = localStorage.getItem("theme");
-        if (saved) { document.documentElement.setAttribute("data-theme", saved); }
+      <article class="card section reveal">
+        <div class="section-head">
+          <h2>Enfoque profesional</h2>
+          <span>Objetivo</span>
+        </div>
+        <div class="item">
+          <p>
+            Interés en asumir mayores responsabilidades en gestión tecnológica, combinando la experiencia práctica de infraestructura y soporte
+            con desarrollo de software, bases de datos e integración de sistemas. Enfoque en seguridad, continuidad, automatización y soluciones
+            alineadas con las necesidades del negocio.
+          </p>
+        </div>
+      </article>
+    </section>
 
-        themeBtn.addEventListener("click", () => {
-            const cur = document.documentElement.getAttribute("data-theme") || "dark";
-            const next = cur === "light" ? "dark" : "light";
-            document.documentElement.setAttribute("data-theme", next);
-            localStorage.setItem("theme", next);
+    <footer class="card footer reveal">
+      Hoja de vida web · Actualizada para procesos de selección en Tecnología y Sistemas · 2026
+    </footer>
+  </main>
+
+  <script>
+    const themeBtn = document.getElementById('themeBtn');
+    const savedTheme = localStorage.getItem('cv-theme');
+    if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+
+    themeBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('cv-theme', next);
+    });
+
+    const revealElements = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('in');
         });
-
-        // Reveal on scroll (animaciones al aparecer)
-        const io = new IntersectionObserver((entries) => {
-            for (const e of entries) {
-                if (e.isIntersecting) e.target.classList.add("in");
-            }
-        }, { threshold: 0.12 });
-
-        document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-    </script>
+      }, { threshold: 0.08 });
+      revealElements.forEach((el) => observer.observe(el));
+    } else {
+      revealElements.forEach((el) => el.classList.add('in'));
+    }
+  </script>
 </body>
-
 </html>
