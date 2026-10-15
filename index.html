@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hoja de Vida | Jhonnier Villada - Tecnología y Sistemas</title>
-  <meta name="description" content="Hoja de vida de Jhonnier Villada. Tecnología y sistemas, infraestructura, redes, soporte, ciberseguridad y desarrollo de software." />
+  <title>Jhonnier Villada | Desarrollador de software junior</title>
+  <meta name="description" content="Hoja de vida y proyectos de Jhonnier Villada, perfil de desarrollador de software junior. JavaScript, HTML, CSS, SQL, Supabase, APIs y aplicaciones web." />
 
   <style>
     :root {
@@ -313,7 +313,7 @@
       font-size: 12px;
     }
 
-    .reveal { opacity: 0; transform: translateY(8px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal { opacity: 1; transform: none; }
     .reveal.in { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 940px) {
@@ -336,308 +336,263 @@
       .job-date { white-space: normal; }
     }
 
+    section[id] { scroll-margin-top: 90px; }
+    .section-intro { color: var(--muted); font-size: 14px; line-height: 1.65; margin: 0 0 16px; max-width: 90ch; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .project { padding: 18px; display: flex; flex-direction: column; }
+    .project .actions { margin-top: auto; padding-top: 14px; }
+    .project h3 { font-size: 16px; line-height: 1.4; }
+    .project .project-tech { margin-top: 10px; font-size: 12px; color: var(--text); }
+    .skills-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .skill-box { padding: 16px; }
+    .skill-box h3 { font-size: 14px; }
+    .skill-box p { font-size: 13.5px; line-height: 1.65; }
+    .work-list { margin: 0; padding-left: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 30px; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .work-list strong { display: block; }
+    .job p { margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--muted); }
+    .metric-row { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .metric strong { font-size: 16px; }
+    [data-theme="light"] { --brand: #155e75; --brand2: #6d28d9; }
+    [data-theme="light"] .role { color: #155e75; background: none; -webkit-text-fill-color: #155e75; }
+    [data-theme="light"] .btn-primary { color: #fff; background: #155e75; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--brand); outline-offset: 4px; }
+    .skip-link { position: fixed; top: -100px; left: 12px; z-index: 100; padding: 12px; background: #fff; color: #111827; }
+    .skip-link:focus { top: 12px; }
+    @media (max-width: 940px) { .skills-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    @media (max-width: 600px) {
+      .project-grid, .work-list, .skills-grid { grid-template-columns: 1fr; }
+      .metric-row { grid-template-columns: 1fr; }
+      .nav-inner { flex-wrap: wrap; }
+      .nav-actions { margin-left: auto; }
+      .section-head { flex-wrap: wrap; gap: 5px; }
+      .profile-top { flex-wrap: wrap; }
+      .contact-item { flex-wrap: wrap; }
+      .contact-item strong { text-align: left; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
     @media print {
-      @page { size: A4; margin: 11mm; }
+      @page { size: A4; margin: 12mm; }
+      :root, [data-theme="light"] { --text: #111827; --muted: #334155; --brand: #155e75; --line: #cbd5e1; }
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      body { background: #fff !important; color: #111827 !important; font-size: 10.5pt; }
-      .nav, .actions { display: none !important; }
+      body { background: #fff !important; color: #111827 !important; }
+      .nav, .actions, .footer, .skip-link, .metric-row, .kicker, .mini-note { display: none !important; }
       .container { max-width: none; padding: 0; }
-      .card, .item, .job, .skill-box, .metric, .contact-item, .mini-note {
-        box-shadow: none !important;
-        background: #fff !important;
-        border-color: #d7dde6 !important;
-        break-inside: avoid;
-      }
-      .hero { grid-template-columns: 1.38fr .62fr; gap: 10px; }
-      .hero-main { padding: 18px; }
-      .hero-side, .section { padding: 14px; }
-      h1 { color: #0f172a !important; font-size: 34px; }
-      .role { color: #0f5f79 !important; -webkit-text-fill-color: #0f5f79; }
-      .lead, .muted, .item p, .job-company, .job ul, .skill-box p, .contact-item span:first-child, .mini-note { color: #475569 !important; }
-      strong, .job h3, .item h3, .section-head h2, .profile-name { color: #0f172a !important; }
-      .job-date { color: #0f5f79 !important; }
-      .section-grid { gap: 10px; margin-top: 10px; }
-      .section-head { margin-bottom: 8px; }
-      .list, .timeline { gap: 7px; }
-      .skills-grid { gap: 7px; }
-      .footer { display: none; }
+      .card, .item, .job, .skill-box, .contact-item { box-shadow: none; background: #fff; border-color: #cbd5e1; }
+      .card { border: 0; border-radius: 0; }
+      .hero { display: block; }
+      .hero-main { padding: 0; }
+      h1 { margin: 0 0 5px; font-size: 26px; letter-spacing: -.5px; }
+      .role { background: none; color: #155e75; -webkit-text-fill-color: #155e75; font-size: 14px; margin-bottom: 7px; }
+      .lead { font-size: 12px; line-height: 1.5; max-width: none; }
+      .hero-side { padding: 9px 0 0; }
+      .profile { gap: 0; }
+      .profile-top { display: none; }
+      .contact-list { display: block; font-size: 10px; }
+      .contact-item { display: inline; padding: 0; border: 0; font-size: 11px; }
+      .contact-item::after { content: " | "; color: #64748b; }
+      .contact-item:last-child::after { content: ""; }
+      .contact-item span { display: none; }
+      .contact-item strong { font-size: 10px; font-weight: 400; }
+      .section-grid { display: block; margin-top: 12px; }
+      .section { padding: 0; }
+      .section-head { margin-bottom: 7px; }
+      .section-head h2 { font-size: 12px; color: #155e75; }
+      .section-head span { display: none; }
+      .section-intro { font-size: 11px; line-height: 1.45; margin-bottom: 7px; }
+      .skills-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 7px; }
+      .skill-box { padding: 8px; border-radius: 6px; break-inside: avoid; }
+      .skill-box h3 { font-size: 12px; margin-bottom: 3px; }
+      .skill-box p { font-size: 11px; line-height: 1.45; }
+      .work-list { display: grid; grid-template-columns: 1fr 1fr; gap: 7px 22px; font-size: 11px; line-height: 1.45; padding-left: 14px; }
+      .work-list li { break-inside: avoid; }
+      .resume-page + .resume-page { break-before: page; page-break-before: always; }
+      .resume-page + .resume-page > .section-grid:first-child { margin-top: 0; }
+      .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+      .project { padding: 9px; border-radius: 6px; break-inside: avoid; }
+      .project h3 { font-size: 11px; margin-bottom: 4px; }
+      .project p, .project .project-tech { font-size: 11px; line-height: 1.45; }
+      .project .project-tech { margin-top: 5px; }
+      .timeline { gap: 6px; }
+      .job { padding: 8px; border-radius: 6px; break-inside: avoid; }
+      .job-top { margin-bottom: 4px; }
+      .job h3 { font-size: 12px; }
+      .job-company, .job-date { font-size: 11px; }
+      .job p { font-size: 11px; line-height: 1.45; }
+      .education-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .education-grid .item { border: 0; padding: 0; }
+      .education-grid .item h3 { font-size: 12px; }
+      .education-grid .item p { font-size: 11px; line-height: 1.45; }
+      .education-grid .list { gap: 8px; }
       .reveal { opacity: 1 !important; transform: none !important; }
     }
   </style>
 </head>
 
 <body>
-  <div class="nav">
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+  <nav class="nav" aria-label="Acciones de la hoja de vida">
     <div class="nav-inner">
-      <div class="brand">
-        <span class="brand-dot"></span>
-        <span>Jhonnier Villada</span>
-        <span class="muted">Hoja de vida 2026</span>
-      </div>
+      <a class="brand" href="#contenido"><span class="brand-dot" aria-hidden="true"></span><span>Jhonnier Villada</span><span class="muted">Desarrollo junior</span></a>
       <div class="nav-actions">
-        <button class="btn" id="themeBtn" type="button" title="Cambiar tema"><span>Tema</span></button>
-        <button class="btn" type="button" onclick="window.print()" title="Guardar como PDF"><span>Descargar PDF</span></button>
-        <a class="btn btn-primary" href="https://wa.me/573225440012" target="_blank" rel="noopener">Contactar</a>
+        <button class="btn" id="themeBtn" type="button" aria-label="Activar tema claro" aria-pressed="false">Tema claro</button>
+        <button class="btn" id="printBtn" type="button" title="Imprimir o guardar esta hoja de vida como PDF">Guardar PDF</button>
+        <a class="btn btn-primary" href="mailto:jhonniervillada538@gmail.com">Contactar</a>
       </div>
     </div>
-  </div>
+  </nav>
 
-  <main class="container">
-    <section class="hero">
-      <article class="card hero-main reveal">
-        <div class="kicker">Tecnología y Sistemas · Infraestructura · Redes · Desarrollo</div>
-        <h1>Jhonnier Villada</h1>
-        <p class="role">Analista de Innovación y Desarrollo | Liderazgo técnico de infraestructura y soluciones TI</p>
-        <p class="lead">
-          Profesional en formación en <strong>Administración de Sistemas (10.º semestre)</strong>, con trayectoria en soporte técnico,
-          infraestructura de redes, conectividad, continuidad operativa y desarrollo de software. Experiencia liderando técnicamente
-          redes e infraestructura en el Club Campestre de Pereira, ejecutando proyectos de fibra óptica, switching, wireless, seguridad
-          perimetral y CCTV; además de desarrollar e integrar soluciones web y plataformas empresariales para optimizar procesos internos.
-        </p>
-
-        <div class="metric-row" aria-label="Resumen de experiencia">
-          <div class="metric"><strong>7+ años</strong><span>Trayectoria reportada en soporte y tecnología</span></div>
-          <div class="metric"><strong>5 años</strong><span>Redes, infraestructura y liderazgo técnico</span></div>
-          <div class="metric"><strong>2 años</strong><span>Desarrollo de software y automatización</span></div>
-          <div class="metric"><strong>10.º semestre</strong><span>Administración de Sistemas</span></div>
-        </div>
-
-        <div class="actions">
-          <a class="btn" href="https://github.com/MrProgramer1997?tab=repositories" target="_blank" rel="noopener">GitHub / Portafolio</a>
-          <a class="btn" href="https://www.linkedin.com/in/jhonnier-villada-valencia-28b04b399/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="#experiencia">Experiencia profesional</a>
-        </div>
-      </article>
-
-      <aside class="card hero-side reveal">
-        <div class="profile">
-          <div class="profile-top">
-            <img class="avatar" src="assets/foto-jhonnier-2026.jpeg" alt="Fotografía profesional de Jhonnier Villada" />
-            <div>
-              <p class="profile-name">Jhonnier Alberto Villada Valencia</p>
-              <p class="profile-role">Tecnología y Sistemas · Infraestructura · Redes · Desarrollo</p>
+  <main class="container" id="contenido">
+    <div class="resume-page">
+      <section class="hero" aria-labelledby="nombre">
+        <article class="card hero-main">
+          <div class="kicker">Desarrollo web · Bases de datos · Integraciones</div>
+          <h1 id="nombre">Jhonnier Villada</h1>
+          <p class="role">Desarrollador de software junior</p>
+          <p class="lead">Estudiante de <strong>Administración de Sistemas, décimo semestre</strong>, con experiencia práctica en el desarrollo y mantenimiento de aplicaciones web para procesos internos. Trabajo principalmente con <strong>JavaScript, HTML, CSS, SQL y Supabase</strong>. He participado en soluciones de turnos, asistencia, formularios, reportes e integración de pagos. Busco una oportunidad junior para aportar en implementación, pruebas y corrección de errores, y seguir aprendiendo junto a un equipo de desarrollo.</p>
+          <div class="metric-row" aria-label="Áreas de trabajo">
+            <div class="metric"><strong>Aplicaciones web</strong><span>Interfaces, formularios y lógica de negocio</span></div>
+            <div class="metric"><strong>Datos y APIs</strong><span>Consultas, registros e integraciones</span></div>
+            <div class="metric"><strong>Mejora continua</strong><span>Pruebas, ajustes y mantenimiento</span></div>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+            <a class="btn" href="#tecnologias">Tecnologías</a>
+            <a class="btn" href="https://github.com/MrProgramer1997" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/jhonnier-villada-valencia-28b04b399/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </article>
+        <aside class="card hero-side" aria-label="Datos de contacto">
+          <div class="profile">
+            <div class="profile-top">
+              <img class="avatar" src="assets/foto-jhonnier-2026.jpeg" alt="Jhonnier Villada" width="112" height="112" />
+              <div><p class="profile-name">Jhonnier Alberto Villada Valencia</p><p class="profile-role">Pereira, Colombia<br>Perfil de desarrollo junior</p></div>
             </div>
-          </div>
-
-          <div class="contact-list">
-            <a class="contact-item" href="mailto:jhonniervillada538@gmail.com"><span>Correo</span><strong>jhonniervillada538@gmail.com</strong></a>
-            <a class="contact-item" href="tel:+573225440012"><span>Teléfono</span><strong>+57 322 544 0012</strong></a>
-            <a class="contact-item" href="https://github.com/MrProgramer1997" target="_blank" rel="noopener"><span>GitHub</span><strong>@MrProgramer1997</strong></a>
-            <div class="contact-item"><span>Idioma</span><strong>Español nativo · Inglés A1</strong></div>
-          </div>
-
-          <div class="mini-note">
-            Perfil orientado a posiciones de coordinación o jefatura TI: combina soporte, redes, seguridad, plataformas empresariales,
-            bases de datos y desarrollo, con conocimiento directo de la operación tecnológica y atención a usuarios internos.
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <section class="section-grid">
-      <article class="card section reveal">
-        <div class="section-head">
-          <h2>Competencias clave para Tecnología y Sistemas</h2>
-          <span>Gestión TI</span>
-        </div>
-        <div class="list">
-          <div class="item">
-            <h3>Liderazgo técnico e infraestructura</h3>
-            <p>Supervisión y ejecución de proyectos de conectividad, fibra óptica, racks, cableado estructurado, switching, wireless y CCTV. Coordinación técnica con áreas internas, proveedores y necesidades operativas.</p>
-          </div>
-          <div class="item">
-            <h3>Seguridad y continuidad operativa</h3>
-            <p>Administración y configuración de soluciones Fortinet, segmentación de red, VPN, control de conectividad y soporte preventivo/correctivo con enfoque en disponibilidad del servicio y reducción de incidentes.</p>
-          </div>
-          <div class="item">
-            <h3>Soporte técnico y mesa de ayuda</h3>
-            <p>Atención presencial y remota a usuarios, diagnóstico de hardware y software, impresoras, sistemas operativos, respaldos, instalación de software corporativo y acompañamiento a la operación.</p>
-          </div>
-          <div class="item">
-            <h3>Desarrollo, datos e integraciones</h3>
-            <p>Desarrollo de módulos web, automatización de procesos, bases de datos relacionales e integración con plataformas empresariales y biométricas.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="card section reveal">
-        <div class="section-head">
-          <h2>Stack y plataformas</h2>
-          <span>Conocimientos</span>
-        </div>
-        <div class="skills-grid">
-          <div class="skill-box"><h3>Redes</h3><p>TCP/IP, VLAN, switching, routing básico, Wi-Fi empresarial, VPN, cableado estructurado y fibra óptica.</p></div>
-          <div class="skill-box"><h3>Seguridad</h3><p>Fortinet, segmentación, políticas de acceso, ESET y buenas prácticas de ciberseguridad.</p></div>
-          <div class="skill-box"><h3>Desarrollo</h3><p>HTML, CSS, JavaScript, TypeScript, React, Node.js, APIs REST y Git/GitHub.</p></div>
-          <div class="skill-box"><h3>Bases de datos</h3><p>PostgreSQL, Supabase, SQL, SQL Server, relaciones, consultas, funciones y control de acceso.</p></div>
-          <div class="skill-box"><h3>Plataformas</h3><p>ERP Prosof, ZKTeco BioTime, Power BI, GitHub Pages y herramientas de administración tecnológica.</p></div>
-          <div class="skill-box"><h3>Operación TI</h3><p>Soporte a usuarios, mantenimiento, inventario técnico, documentación, diagnóstico y mejora continua.</p></div>
-        </div>
-      </article>
-    </section>
-
-    <section class="section-grid" id="experiencia">
-      <article class="card section full reveal">
-        <div class="section-head">
-          <h2>Experiencia profesional</h2>
-          <span>Trayectoria</span>
-        </div>
-
-        <div class="timeline">
-          <div class="job">
-            <div class="job-top">
-              <div>
-                <h3>Analista de Innovación y Desarrollo</h3>
-                <div class="job-company">Corporación Club Campestre de Pereira</div>
-              </div>
-              <div class="job-date">Enero 2023 - Actualidad</div>
+            <div class="contact-list">
+              <a class="contact-item" href="mailto:jhonniervillada538@gmail.com"><span>Correo</span><strong>jhonniervillada538@gmail.com</strong></a>
+              <a class="contact-item" href="tel:+573225440012"><span>Teléfono</span><strong>+57 322 544 0012</strong></a>
+              <a class="contact-item" href="https://github.com/MrProgramer1997" target="_blank" rel="noopener noreferrer"><span>GitHub</span><strong>github.com/MrProgramer1997</strong></a>
+              <div class="contact-item"><span>Ubicación</span><strong>Pereira, Colombia</strong></div>
+              <div class="contact-item"><span>Idiomas</span><strong>Español nativo · Inglés A1</strong></div>
             </div>
-            <ul>
-              <li>Liderazgo técnico de la infraestructura de redes y conectividad, con participación en diagnóstico, diseño, implementación y mejora de soluciones.</li>
-              <li>Supervisión e implementación de proyectos de fibra óptica, racks de comunicaciones, cableado estructurado, switching, access points y CCTV.</li>
-              <li>Configuración y administración de infraestructura Fortinet y equipos de red de fabricantes como Ruijie, FortiAP, Ubiquiti y TP-Link.</li>
-              <li>Soporte técnico a usuarios y acompañamiento a la operación para mantener la continuidad de los servicios tecnológicos.</li>
-              <li>Desarrollo de módulos web y automatizaciones para procesos internos, utilizando JavaScript/TypeScript, React, Supabase/PostgreSQL, Git y GitHub.</li>
-              <li>Integración y soporte de plataformas empresariales, biometría y datos, incluyendo ERP Prosof, ZKTeco BioTime y tableros en Power BI.</li>
-              <li>Levantamiento de requerimientos con áreas usuarias, análisis de necesidades, pruebas, documentación y puesta en producción de soluciones.</li>
-            </ul>
+            <div class="mini-note">Mi experiencia en soporte y operación TI me ayuda a entender las necesidades de los usuarios, investigar fallas y acompañar el uso de las soluciones que desarrollo.</div>
           </div>
+        </aside>
+      </section>
 
-          <div class="job">
-            <div class="job-top">
-              <div>
-                <h3>Soporte Técnico</h3>
-                <div class="job-company">GlobalDoc S.A.S.</div>
-              </div>
-              <div class="job-date">2021 - Enero 2023</div>
-            </div>
-            <ul>
-              <li>Soporte presencial y remoto a la operación de impresión de Comfamiliar Risaralda.</li>
-              <li>Configuración de impresoras mediante servidores, host y direccionamiento IP.</li>
-              <li>Diagnóstico, reparación y mantenimiento preventivo de equipos de impresión a nivel de hardware.</li>
-              <li>Atención de incidentes y acompañamiento a usuarios para restablecer el servicio.</li>
-            </ul>
+      <section class="section-grid" id="tecnologias" aria-labelledby="titulo-tecnologias">
+        <article class="card section full">
+          <div class="section-head"><h2 id="titulo-tecnologias">Tecnologías y herramientas</h2><span>Experiencia práctica</span></div>
+          <p class="section-intro">Herramientas utilizadas en mis proyectos y conocimientos que continúo fortaleciendo como desarrollador junior.</p>
+          <div class="skills-grid">
+            <div class="skill-box"><h3>Desarrollo frontend</h3><p>HTML5, CSS3 y JavaScript: interfaces adaptables a celular y computador, manipulación del DOM, eventos, formularios y validación de datos. Uso de Bootstrap.</p></div>
+            <div class="skill-box"><h3>Bases de datos</h3><p>SQL, PostgreSQL y Supabase: tablas, relaciones, consultas, vistas y funciones. SQL Server para consulta de información operativa y biométrica.</p></div>
+            <div class="skill-box"><h3>APIs y funciones de servidor</h3><p>Consumo de APIs REST con fetch, JSON y async/await. Uso de Supabase Edge Functions con TypeScript/Deno e integración de servicios externos como ePayco.</p></div>
+            <div class="skill-box"><h3>Acceso y aplicaciones PWA</h3><p>Supabase Auth, sesiones, roles, permisos y políticas RLS. Implementación y ajustes de PWA, manifiestos, service workers y notificaciones push.</p></div>
+            <div class="skill-box"><h3>Reportes y visualización</h3><p>Exportaciones a Excel/CSV con SheetJS y a PDF con jsPDF/AutoTable. Gráficos con Chart.js y trabajo con información de ZKTeco BioTime y ERP Prosof.</p></div>
+            <div class="skill-box"><h3>Herramientas y publicación</h3><p>Visual Studio Code, Git, GitHub, GitHub Pages y GitHub Actions. Node.js y npm para herramientas y pruebas; Vite para desarrollo y compilación de proyectos web.</p></div>
           </div>
+        </article>
+      </section>
 
-          <div class="job">
-            <div class="job-top">
-              <div>
-                <h3>Practicante de Sistemas</h3>
-                <div class="job-company">Comfamiliar Risaralda</div>
-              </div>
-              <div class="job-date">Enero 2020 - 2021</div>
-            </div>
-            <ul>
-              <li>Mantenimiento preventivo y correctivo de equipos de cómputo.</li>
-              <li>Configuración de VPN, clonación de equipos, backups e instalación de software corporativo.</li>
-              <li>Implementación de acciones de mejora y soporte a usuarios.</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-    </section>
+      <section class="section-grid" id="funciones" aria-labelledby="titulo-funciones">
+        <article class="card section full">
+          <div class="section-head"><h2 id="titulo-funciones">Funciones que he trabajado</h2><span>Desarrollo y mantenimiento</span></div>
+          <ul class="work-list">
+            <li><strong>Gestión de registros y formularios</strong>Crear, consultar, editar y eliminar datos (CRUD); búsquedas, filtros, validaciones y manejo de estados.</li>
+            <li><strong>Lógica de negocio</strong>Programación de turnos, cálculo de tiempos, aprobaciones, reservas, cupos y seguimiento de estados de pago.</li>
+            <li><strong>Integración y tratamiento de datos</strong>Conectar interfaces con APIs y bases de datos; revisar información, generar reportes y apoyar importaciones y exportaciones.</li>
+            <li><strong>Pruebas y corrección de errores</strong>Reproducir fallas, revisar consola y solicitudes de red, realizar pruebas funcionales y trabajar con pruebas de lógica en Node.js.</li>
+            <li><strong>Mantenimiento de aplicaciones</strong>Ajustar interfaces, consultas y cargas de datos; revisar permisos y dar seguimiento a incidencias reportadas por usuarios.</li>
+            <li><strong>Trabajo con usuarios y publicación</strong>Recoger requerimientos, documentar cambios, controlar versiones y publicar actualizaciones de aplicaciones web.</li>
+          </ul>
+        </article>
+      </section>
+    </div>
 
-    <section class="section-grid">
-      <article class="card section reveal">
-        <div class="section-head">
-          <h2>Educación</h2>
-          <span>Formación</span>
-        </div>
-        <div class="list">
-          <div class="item">
-            <h3>Administración de Sistemas</h3>
-            <p><strong>Universidad Comfamiliar Risaralda</strong><br>2022 - Actualidad · 10.º semestre.</p>
+    <div class="resume-page">
+      <section class="section-grid" id="proyectos" aria-labelledby="titulo-proyectos">
+        <article class="card section full">
+          <div class="section-head"><h2 id="titulo-proyectos">Proyectos de desarrollo</h2><span>Aplicaciones realizadas</span></div>
+          <div class="project-grid">
+            <article class="item project">
+              <h3>Sistema de turnos y horas extras</h3>
+              <p>Desarrollo y mantenimiento de módulos para programación por áreas, consulta de marcaciones, revisión de horas extras, aprobaciones y reportes. Ajustes del portal de empleados, permisos y notificaciones PWA.</p>
+              <p class="project-tech"><strong>Tecnologías:</strong> JavaScript, HTML/CSS, Supabase/PostgreSQL, funciones TypeScript, jsPDF y SheetJS.</p>
+              <div class="actions"><a class="btn" href="https://github.com/MrProgramer1997/Sistema-de-Turnos-y-Horas-Extras" target="_blank" rel="noopener noreferrer" aria-label="Ver código del sistema de turnos y horas extras">Ver código en GitHub ↗</a></div>
+            </article>
+            <article class="item project">
+              <h3>Reservas e integración de pagos</h3>
+              <p>Formulario para reservas de evento, selección de cupos y consulta del estado de las solicitudes. Trabajo en integración del checkout de ePayco, validación de respuestas y manejo de estados de pago.</p>
+              <p class="project-tech"><strong>Tecnologías:</strong> JavaScript, HTML/CSS, APIs REST, Supabase y ePayco.</p>
+              <div class="actions"><a class="btn" href="https://github.com/MrProgramer1997/Formulario-Blanco-y-Negro" target="_blank" rel="noopener noreferrer" aria-label="Ver código del formulario de reservas y pagos">Ver código en GitHub ↗</a></div>
+            </article>
+            <article class="item project">
+              <h3>Gestión de Sistemas e Innovación</h3>
+              <p>Aplicación para consultar y gestionar proyectos, solicitudes y tareas. Trabajo con autenticación, perfiles de acceso y trazabilidad; integración de un asistente mediante herramientas MCP.</p>
+              <p class="project-tech"><strong>Tecnologías:</strong> JavaScript, Supabase Auth, PostgreSQL, RLS y Edge Functions con TypeScript.</p>
+              <div class="actions"><a class="btn" href="https://github.com/MrProgramer1997/Gesti-n-Sistemas" target="_blank" rel="noopener noreferrer" aria-label="Ver código de Gestión de Sistemas">Ver código en GitHub ↗</a></div>
+            </article>
+            <article class="item project">
+              <h3>Formularios, encuestas y asistencia</h3>
+              <p>Soluciones para inscripciones de la Semana de la Salud, encuestas internas y registro de asistencia de la Academia de Golf. Formularios con validaciones, consulta administrativa y exportación de información.</p>
+              <p class="project-tech"><strong>Tecnologías:</strong> HTML, CSS, JavaScript, Supabase y reportes en Excel.</p>
+              <div class="actions"><a class="btn" href="https://github.com/MrProgramer1997/Semana-de-la-Salud" target="_blank" rel="noopener noreferrer">Semana de la Salud ↗</a><a class="btn" href="https://github.com/MrProgramer1997/Academia-de-Golf" target="_blank" rel="noopener noreferrer">Academia de Golf ↗</a></div>
+            </article>
           </div>
-          <div class="item">
-            <h3>Técnico Laboral por Competencias en Sistemas</h3>
-            <p><strong>Instituto Comfamiliar Risaralda</strong><br>2019 - 2021.</p>
-          </div>
-        </div>
-      </article>
+        </article>
+      </section>
 
-      <article class="card section reveal">
-        <div class="section-head">
-          <h2>Proyectos y logros relevantes</h2>
-          <span>Impacto</span>
-        </div>
-        <div class="list">
-          <div class="item">
-            <h3>Modernización y continuidad de red</h3>
-            <p>Participación técnica en proyectos de conectividad, enlaces de fibra, segmentación, switching, Wi-Fi, CCTV y optimización de puntos de red para mejorar estabilidad y cobertura.</p>
+      <section class="section-grid" id="experiencia" aria-labelledby="titulo-experiencia">
+        <article class="card section full">
+          <div class="section-head"><h2 id="titulo-experiencia">Experiencia laboral</h2><span>Resumen</span></div>
+          <div class="timeline">
+            <div class="job"><div class="job-top"><div><h3>Analista de Innovación y Desarrollo</h3><div class="job-company">Corporación Club Campestre de Pereira</div></div><div class="job-date">Enero 2023 - Actualidad</div></div><p>Desarrollo y mantenimiento de soluciones web internas, requerimientos, pruebas y soporte a usuarios. Trabajo con datos de plataformas empresariales y biométricas, junto con responsabilidades de redes y soporte TI.</p></div>
+            <div class="job"><div class="job-top"><div><h3>Soporte Técnico</h3><div class="job-company">GlobalDoc S.A.S.</div></div><div class="job-date">2021 - Enero 2023</div></div><p>Atención de incidentes y soporte presencial y remoto a la operación de impresión de Comfamiliar Risaralda; diagnóstico y configuración de equipos.</p></div>
+            <div class="job"><div class="job-top"><div><h3>Practicante de Sistemas</h3><div class="job-company">Comfamiliar Risaralda</div></div><div class="job-date">Enero 2020 - 2021</div></div><p>Soporte a usuarios, mantenimiento de equipos, instalación de software, respaldos y apoyo a la operación tecnológica.</p></div>
           </div>
-          <div class="item">
-            <h3>Digitalización de procesos internos</h3>
-            <p>Diseño y desarrollo de módulos web para programación, registros, aprobaciones y reportes, con bases de datos PostgreSQL/Supabase e integración con sistemas existentes.</p>
+        </article>
+      </section>
+
+      <section class="section-grid education-grid" aria-label="Formación y conocimientos complementarios">
+        <article class="card section">
+          <div class="section-head"><h2>Formación académica</h2></div>
+          <div class="list">
+            <div class="item"><h3>Administración de Sistemas</h3><p>Universidad Comfamiliar Risaralda<br>2022 - Actualidad · Décimo semestre.</p></div>
+            <div class="item"><h3>Técnico Laboral por Competencias en Sistemas</h3><p>Instituto Comfamiliar Risaralda<br>2019 - 2021.</p></div>
           </div>
-          <div class="item">
-            <h3>Integraciones operativas</h3>
-            <p>Trabajo con plataformas biométricas, ERP y analítica para conectar información operativa, reducir tareas manuales y mejorar trazabilidad.</p>
+        </article>
+        <article class="card section">
+          <div class="section-head"><h2>Conocimientos complementarios</h2></div>
+          <div class="list">
+            <div class="item"><h3>Aprendizaje continuo</h3><p>Conocimientos iniciales de React. Fortalecimiento de TypeScript, organización del código y pruebas automatizadas. Uso de asistentes de IA como apoyo al desarrollo y la documentación, con revisión y validación funcional.</p></div>
+            <div class="item"><h3>Contexto de operación</h3><p>Power BI, ERP Prosof, ZKTeco BioTime, soporte y redes. Comunicación con usuarios, resolución de problemas, documentación y disposición para recibir retroalimentación.</p></div>
           </div>
-        </div>
-      </article>
-    </section>
-
-    <section class="section-grid">
-      <article class="card section reveal">
-        <div class="section-head">
-          <h2>Fortalezas profesionales</h2>
-          <span>Liderazgo</span>
-        </div>
-        <div class="chips">
-          <span class="chip">Resolución de problemas</span>
-          <span class="chip">Liderazgo técnico</span>
-          <span class="chip">Mejora continua</span>
-          <span class="chip">Comunicación con áreas</span>
-          <span class="chip">Documentación</span>
-          <span class="chip">Priorización de incidentes</span>
-          <span class="chip">Orientación al servicio</span>
-          <span class="chip">Adaptabilidad</span>
-        </div>
-      </article>
-
-      <article class="card section reveal">
-        <div class="section-head">
-          <h2>Enfoque profesional</h2>
-          <span>Objetivo</span>
-        </div>
-        <div class="item">
-          <p>
-            Interés en asumir mayores responsabilidades en gestión tecnológica, combinando la experiencia práctica de infraestructura y soporte
-            con desarrollo de software, bases de datos e integración de sistemas. Enfoque en seguridad, continuidad, automatización y soluciones
-            alineadas con las necesidades del negocio.
-          </p>
-        </div>
-      </article>
-    </section>
-
-    <footer class="card footer reveal">
-      Hoja de vida web · Actualizada para procesos de selección en Tecnología y Sistemas · 2026
-    </footer>
+        </article>
+      </section>
+    </div>
+    <footer class="card footer">Jhonnier Villada · Perfil de desarrollo de software junior · Actualizado en octubre de 2026</footer>
   </main>
-
   <script>
     const themeBtn = document.getElementById('themeBtn');
-    const savedTheme = localStorage.getItem('cv-theme');
-    if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
-
-    themeBtn.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme') || 'dark';
-      const next = current === 'light' ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('cv-theme', next);
-    });
-
-    const revealElements = document.querySelectorAll('.reveal');
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('in');
-        });
-      }, { threshold: 0.08 });
-      revealElements.forEach((el) => observer.observe(el));
-    } else {
-      revealElements.forEach((el) => el.classList.add('in'));
+    function applyTheme(theme) {
+      const light = theme === 'light';
+      document.documentElement.setAttribute('data-theme', light ? 'light' : 'dark');
+      themeBtn.textContent = light ? 'Tema oscuro' : 'Tema claro';
+      themeBtn.setAttribute('aria-label', light ? 'Activar tema oscuro' : 'Activar tema claro');
+      themeBtn.setAttribute('aria-pressed', String(light));
     }
+    let savedTheme = 'dark';
+    try { savedTheme = localStorage.getItem('cv-theme') || 'dark'; } catch (_) {}
+    applyTheme(savedTheme);
+    themeBtn.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      applyTheme(next);
+      try { localStorage.setItem('cv-theme', next); } catch (_) {}
+    });
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
   </script>
 </body>
 </html>
