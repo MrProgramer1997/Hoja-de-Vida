@@ -411,6 +411,9 @@
       .resume-page + .resume-page { break-before: page; page-break-before: always; }
       .resume-page + .resume-page > .section-grid:first-child { margin-top: 0; }
       .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+      #metodologias .item { padding: 8px; border-radius: 6px; break-inside: avoid; }
+      #metodologias h3 { font-size: 12px; margin-bottom: 3px; }
+      #metodologias p { font-size: 11px; line-height: 1.45; }
       .project { padding: 9px; border-radius: 6px; break-inside: avoid; }
       .project h3 { font-size: 11px; margin-bottom: 4px; }
       .project p, .project .project-tech { font-size: 11px; line-height: 1.45; }
@@ -451,7 +454,7 @@
           <div class="kicker">Desarrollo web · Bases de datos · Integraciones</div>
           <h1 id="nombre">Jhonnier Villada</h1>
           <p class="role">Desarrollador de software junior</p>
-          <p class="lead">Estudiante de <strong>Administración de Sistemas, décimo semestre</strong>, con experiencia práctica en el desarrollo y mantenimiento de aplicaciones web para procesos internos. Trabajo principalmente con <strong>JavaScript, HTML, CSS, SQL y Supabase</strong>. He participado en soluciones de turnos, asistencia, formularios, reportes e integración de pagos. Busco una oportunidad junior para aportar en implementación, pruebas y corrección de errores, y seguir aprendiendo junto a un equipo de desarrollo.</p>
+          <p class="lead">Estudiante de <strong>Administración de Sistemas, décimo semestre</strong>, con experiencia práctica en el desarrollo y mantenimiento de aplicaciones web para procesos internos. Trabajo principalmente con <strong>JavaScript, HTML, CSS, SQL y Supabase</strong>. He participado en soluciones de turnos, asistencia, formularios, reportes e integración de pagos. Complemento esta práctica con <strong>formación universitaria en metodologías ágiles y Scrum</strong>. Busco una oportunidad junior para aportar en implementación, pruebas y corrección de errores, y seguir aprendiendo junto a un equipo de desarrollo.</p>
           <div class="metric-row" aria-label="Áreas de trabajo">
             <div class="metric"><strong>Aplicaciones web</strong><span>Interfaces, formularios y lógica de negocio</span></div>
             <div class="metric"><strong>Datos y APIs</strong><span>Consultas, registros e integraciones</span></div>
@@ -460,6 +463,7 @@
           <div class="actions">
             <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
             <a class="btn" href="#tecnologias">Tecnologías</a>
+            <a class="btn" href="#metodologias">Metodologías</a>
             <a class="btn" href="https://github.com/MrProgramer1997" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a class="btn" href="https://www.linkedin.com/in/jhonnier-villada-valencia-28b04b399/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
@@ -499,15 +503,30 @@
 
       <section class="section-grid" id="funciones" aria-labelledby="titulo-funciones">
         <article class="card section full">
-          <div class="section-head"><h2 id="titulo-funciones">Funciones que he trabajado</h2><span>Desarrollo y mantenimiento</span></div>
+          <div class="section-head"><h2 id="titulo-funciones">Competencias de desarrollo</h2><span>Desarrollo y mantenimiento</span></div>
           <ul class="work-list">
             <li><strong>Gestión de registros y formularios</strong>Crear, consultar, editar y eliminar datos (CRUD); búsquedas, filtros, validaciones y manejo de estados.</li>
             <li><strong>Lógica de negocio</strong>Programación de turnos, cálculo de tiempos, aprobaciones, reservas, cupos y seguimiento de estados de pago.</li>
             <li><strong>Integración y tratamiento de datos</strong>Conectar interfaces con APIs y bases de datos; revisar información, generar reportes y apoyar importaciones y exportaciones.</li>
             <li><strong>Pruebas y corrección de errores</strong>Reproducir fallas, revisar consola y solicitudes de red, realizar pruebas funcionales y trabajar con pruebas de lógica en Node.js.</li>
             <li><strong>Mantenimiento de aplicaciones</strong>Ajustar interfaces, consultas y cargas de datos; revisar permisos y dar seguimiento a incidencias reportadas por usuarios.</li>
-            <li><strong>Trabajo con usuarios y publicación</strong>Recoger requerimientos, documentar cambios, controlar versiones y publicar actualizaciones de aplicaciones web.</li>
+            <li><strong>Requerimientos y entrega de soluciones</strong>Analizar necesidades con usuarios, documentar cambios, controlar versiones con Git y publicar actualizaciones de aplicaciones web.</li>
           </ul>
+        </article>
+      </section>
+      <section class="section-grid" id="metodologias" aria-labelledby="titulo-metodologias">
+        <article class="card section full">
+          <div class="section-head"><h2 id="titulo-metodologias">Metodologías y forma de trabajo</h2><span>Formación y práctica</span></div>
+          <div class="project-grid">
+            <div class="item">
+              <h3>Metodologías ágiles y Scrum</h3>
+              <p>Formación universitaria en enfoques ágiles y fundamentos del marco Scrum: roles, backlog, sprints, planificación, revisión y retrospectiva. Conocimientos académicos de trabajo iterativo y mejora continua.</p>
+            </div>
+            <div class="item">
+              <h3>Colaboración y ciclo de desarrollo</h3>
+              <p>Trabajo con usuarios para entender requerimientos, implementar ajustes, realizar pruebas y recoger retroalimentación. Documentación de cambios, seguimiento de tareas y comunicación de avances e incidencias.</p>
+            </div>
+          </div>
         </article>
       </section>
     </div>
