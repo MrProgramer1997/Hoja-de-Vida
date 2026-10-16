@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jhonnier Villada | Desarrollador de software junior</title>
-  <meta name="description" content="Jhonnier Villada, desarrollador de software junior. Desarrollo web, JavaScript, TypeScript, SQL, Supabase, APIs REST, automatización, pruebas y formación en Scrum." />
+  <meta name="description" content="Jhonnier Villada, desarrollador de software junior. JavaScript, TypeScript, SQL, PostgreSQL, Supabase, APIs REST, Git/GitHub, pruebas, depuración y formación en Scrum." />
 
   <style>
     :root {
@@ -411,9 +411,9 @@
       .resume-page + .resume-page { break-before: page; page-break-before: always; }
       .resume-page + .resume-page > .section-grid:first-child { margin-top: 0; }
       .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
-      #metodologias .item { padding: 8px; border-radius: 6px; break-inside: avoid; }
-      #metodologias h3 { font-size: 12px; margin-bottom: 3px; }
-      #metodologias p { font-size: 11px; line-height: 1.45; }
+      #metodologias .item, #aprendizaje .item { padding: 8px; border-radius: 6px; break-inside: avoid; }
+      #metodologias h3, #aprendizaje h3 { font-size: 12px; margin-bottom: 3px; }
+      #metodologias p, #aprendizaje p { font-size: 11px; line-height: 1.45; }
       .project { padding: 9px; border-radius: 6px; break-inside: avoid; }
       .project h3 { font-size: 11px; margin-bottom: 4px; }
       .project p, .project .project-tech { font-size: 11px; line-height: 1.45; }
@@ -492,11 +492,11 @@
           <p class="section-intro">Competencias aplicadas en proyectos: interfaces web, lógica de negocio, bases de datos, integraciones, pruebas y despliegue.</p>
           <div class="skills-grid">
             <div class="skill-box"><h3>Desarrollo frontend</h3><p>Desarrollo de interfaces responsive con HTML5, CSS3, JavaScript y Bootstrap. Manipulación del DOM, eventos, módulos JavaScript, formularios, validaciones y manejo de estados de la interfaz.</p></div>
-            <div class="skill-box"><h3>Bases de datos</h3><p>Trabajo con SQL, PostgreSQL y Supabase: diseño de tablas y relaciones, consultas, vistas, funciones y operaciones CRUD. Consulta y revisión de datos operativos y biométricos en SQL Server.</p></div>
-            <div class="skill-box"><h3>Backend e integraciones</h3><p>Integración de APIs REST, solicitudes HTTP, JSON y programación asíncrona con fetch y async/await. Implementación de funciones de servidor con Supabase Edge Functions y TypeScript/Deno; integración de ePayco.</p></div>
+            <div class="skill-box"><h3>Bases de datos y SQL</h3><p>SQL, PostgreSQL y Supabase: tablas, relaciones, consultas, vistas, funciones y operaciones CRUD. Validación de información y detección de inconsistencias con consultas SQL. Revisión de datos operativos y biométricos en SQL Server.</p></div>
+            <div class="skill-box"><h3>Backend y APIs REST</h3><p>Consumo e integración de APIs REST: HTTP, JSON, fetch, async/await y manejo de respuestas y errores. Funciones de servidor con Supabase Edge Functions y TypeScript/Deno; integración de servicios de terceros como ePayco.</p></div>
             <div class="skill-box"><h3>Acceso y aplicaciones PWA</h3><p>Implementación de autenticación, sesiones y control de acceso con Supabase Auth, roles, permisos y políticas RLS. Desarrollo y mantenimiento de PWA con manifiestos, service workers y notificaciones push.</p></div>
             <div class="skill-box"><h3>Reportes y visualización</h3><p>Desarrollo de reportes, dashboards y gráficos con Chart.js. Generación de Excel/CSV con SheetJS y PDF con jsPDF/AutoTable; procesamiento de información de ZKTeco BioTime y ERP Prosof.</p></div>
-            <div class="skill-box"><h3>Herramientas y publicación</h3><p>Control de versiones con Git/GitHub y publicación mediante GitHub Pages y flujos de GitHub Actions. Visual Studio Code, Node.js y npm para herramientas y pruebas; desarrollo y compilación con Vite.</p></div>
+            <div class="skill-box"><h3>Git y herramientas de desarrollo</h3><p>Control de versiones con Git/GitHub; publicación mediante GitHub Pages y flujos de GitHub Actions. Visual Studio Code, DevTools, Node.js y npm para desarrollo, diagnóstico y pruebas; compilación con Vite.</p></div>
           </div>
         </article>
       </section>
@@ -508,8 +508,8 @@
             <li><strong>Desarrollo de módulos y operaciones CRUD</strong>Implementación de registros, búsquedas, filtros, edición y eliminación de datos, con validación de formularios y manejo de errores.</li>
             <li><strong>Automatización y lógica de negocio</strong>Implementación de reglas para turnos, cálculo de tiempos, aprobaciones, reservas, disponibilidad de cupos y seguimiento de pagos.</li>
             <li><strong>Integración y tratamiento de datos</strong>Conexión de aplicaciones con APIs y bases de datos; revisión de consistencia, procesamiento de información, importaciones y exportación de reportes.</li>
-            <li><strong>Pruebas y depuración</strong>Pruebas funcionales y de lógica de negocio con Node.js. Diagnóstico mediante consola y solicitudes de red, reproducción de fallas y verificación de correcciones.</li>
-            <li><strong>Mantenimiento y mejora de aplicaciones</strong>Ajustes de rendimiento en consultas y carga de datos, mejoras de interfaz, revisión de permisos y solución de incidencias reportadas por usuarios.</li>
+            <li><strong>Pruebas manuales y automatizadas</strong>Pruebas funcionales y automatización de pruebas de lógica de negocio con Node.js. Práctica inicial con Playwright para verificar interacciones, navegación por teclado y vistas responsive.</li>
+            <li><strong>Depuración y gestión de incidencias</strong>Uso de DevTools, consola y solicitudes de red para identificar, reproducir y documentar errores. Seguimiento de correcciones y mejoras de rendimiento, carga de datos y permisos.</li>
             <li><strong>Análisis y entrega de soluciones</strong>Levantamiento de requerimientos, implementación de funcionalidades, documentación técnica, control de versiones y publicación de actualizaciones.</li>
           </ul>
         </article>
@@ -524,8 +524,17 @@
             </div>
             <div class="item">
               <h3>Colaboración y ciclo de desarrollo</h3>
-              <p>Trabajo con usuarios para entender requerimientos, implementar ajustes, realizar pruebas y recoger retroalimentación. Documentación de cambios, seguimiento de tareas y comunicación de avances e incidencias.</p>
+              <p>Análisis de requerimientos con usuarios, seguimiento de tareas, documentación de cambios y comunicación de avances e incidencias. Pensamiento analítico, atención al detalle, trabajo en equipo y mejora continua a partir de pruebas y retroalimentación.</p>
             </div>
+          </div>
+        </article>
+      </section>
+      <section class="section-grid" id="aprendizaje" aria-labelledby="titulo-aprendizaje">
+        <article class="card section full">
+          <div class="section-head"><h2 id="titulo-aprendizaje">Ruta de aprendizaje</h2><span>Objetivos de formación</span></div>
+          <div class="project-grid">
+            <div class="item"><h3>Backend y entornos de desarrollo</h3><p>Interés de formación en PHP y Laravel, MySQL, Linux y Docker para ampliar el desarrollo de servicios web y el trabajo con entornos de despliegue.</p></div>
+            <div class="item"><h3>Calidad y seguimiento de tareas</h3><p>Objetivos de aprendizaje: Postman para pruebas de APIs, Jira para gestión de incidencias y profundización en Playwright para automatizar pruebas de interfaz.</p></div>
           </div>
         </article>
       </section>
